@@ -1,4 +1,6 @@
 package org.example.destinationservice.pojo.entity;
+import org.example.destinationservice.pojo.dto.DestinationDTO;
+
 import java.time.OffsetDateTime;
 
 /**
@@ -24,7 +26,7 @@ public class Destination {
     private String name;
     private OffsetDateTime updatedAt;
 
-    public OffsetDateTime getCreatedAt() { return createdAt; }
+    public OffsetDateTime getCretedAt() { return createdAt; }
     public void setCreatedAt(OffsetDateTime value) { this.createdAt = value; }
 
     public String getDescription() { return description; }
