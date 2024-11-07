@@ -64,3 +64,47 @@
 15:27:42:478  WARN 3084 --- [Thread-12] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
 15:27:42:735  INFO 3084 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
 15:27:42:740  INFO 3084 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+15:36:43:862  INFO 17788 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+15:36:43:953  INFO 17788 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 17788 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+15:36:43:953  INFO 17788 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+15:36:44:301  WARN 17788 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.example.itineraryservice]' package. Please check your configuration.
+15:36:44:329  INFO 17788 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=15690249-a175-3d81-9238-4f47e907eb72
+15:36:44:496  INFO 17788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+15:36:44:502  INFO 17788 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:36:44:502  INFO 17788 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+15:36:44:602  INFO 17788 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+15:36:44:602  INFO 17788 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 627 ms
+15:36:44:710  INFO 17788 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:36:46:076  INFO 17788 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+15:36:46:107  INFO 17788 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+15:36:46:108  INFO 17788 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+15:36:47:624  INFO 17788 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+15:36:48:020  INFO 17788 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 4.826 seconds (JVM running for 5.466)
+15:39:52:267  WARN 17788 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+15:39:52:267  WARN 17788 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+15:39:52:267  WARN 17788 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+15:39:52:268  WARN 17788 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+15:39:52:544  INFO 17788 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+15:39:52:548  INFO 17788 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+15:39:54:889  INFO 27212 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+15:39:54:952  INFO 27212 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 27212 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+15:39:54:952  INFO 27212 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+15:39:55:294  WARN 27212 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[org.example.itineraryservice]' package. Please check your configuration.
+15:39:55:322  INFO 27212 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=15690249-a175-3d81-9238-4f47e907eb72
+15:39:55:456  INFO 27212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+15:39:55:460  INFO 27212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+15:39:55:460  INFO 27212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+15:39:55:529  INFO 27212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+15:39:55:529  INFO 27212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 557 ms
+15:39:55:633  INFO 27212 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+15:39:56:981  INFO 27212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+15:39:57:005  INFO 27212 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+15:39:57:005  INFO 27212 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+15:39:58:625  INFO 27212 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+15:39:59:057  INFO 27212 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 4.809 seconds (JVM running for 5.44)
+15:56:53:161  WARN 27212 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+15:56:53:161  WARN 27212 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+15:56:53:161  WARN 27212 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+15:56:53:161  WARN 27212 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+15:56:53:408  INFO 27212 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+15:56:53:413  INFO 27212 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
