@@ -1,0 +1,6 @@
+15:23:11:789  INFO 26776 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 26776 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+15:23:11:791  INFO 26776 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+15:23:12:045  INFO 26776 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 0.507 seconds (JVM running for 1.178)
+15:24:09:073  INFO 29508 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 29508 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+15:24:09:075  INFO 29508 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+15:24:09:389  INFO 29508 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 0.552 seconds (JVM running for 1.177)
