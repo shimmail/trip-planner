@@ -1,6 +1,7 @@
 package org.example.destinationservice.controller;
 
 import jdk.nashorn.internal.ir.RuntimeNode;
+import org.example.destinationservice.pojo.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
 import org.example.destinationservice.result.Result;
 import org.example.destinationservice.service.DestinationService;
@@ -18,8 +19,8 @@ public class DestinationController {
         this.destinationService = destinationService;
     }
 
-    @GetMapping("/listDestinations")
-    public Result listDestinations(@RequestBody Destination destination) {
-        return destinationService.listDestinations(destination);
+    @GetMapping("/getDestinationsById")
+    public Result listDestinations(@RequestBody DestinationDTO destinationDTO) {
+        return destinationService.getDestinationsById(destinationDTO);
     }
 }

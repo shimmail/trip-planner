@@ -20,7 +20,12 @@ public class DestinationServiceImpl implements DestinationService {
     }
 
     @Override
-    public Result listDestinations(Destination destination) {
-        return Result.success();
+    public Result getDestinationsById(DestinationDTO destinationDTO) {
+        long id=destinationDTO.getId();
+        Destination destination = destinationMapper.getDestinationsById(id);
+        if (destination==null){
+            return Result.error("目的地不存在");
+        }
+        return Result.success(destinationMapper.getDestinationsById(id));
     }
 }
