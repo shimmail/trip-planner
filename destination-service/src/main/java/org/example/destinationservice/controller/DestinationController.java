@@ -1,14 +1,11 @@
 package org.example.destinationservice.controller;
 
-import jdk.nashorn.internal.ir.RuntimeNode;
-import org.example.destinationservice.pojo.dto.DestinationDTO;
+
+import com.example.common.result.Result;
+import org.example.api.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
-import org.example.destinationservice.result.Result;
 import org.example.destinationservice.service.DestinationService;
 import org.springframework.web.bind.annotation.*;
-
-import javax.security.auth.message.callback.PrivateKeyCallback;
-import java.util.List;
 
 @RestController
 @RequestMapping("/destination")
@@ -19,8 +16,14 @@ public class DestinationController {
         this.destinationService = destinationService;
     }
 
-    @GetMapping("/getDestinationsById")
-    public Result listDestinations(@RequestBody DestinationDTO destinationDTO) {
-        return destinationService.getDestinationsById(destinationDTO);
+    @GetMapping("/getDestinationsByName")
+    public Result<Destination> getDestinationsByName(@RequestParam String name) {
+        try {
+            DestinationDTO destinationDTO = new DestinationDTO();
+            destinationDTO.setName(name);
+            return destinationService.getDestinationsByName(destinationDTO);
+        } catch (Exception e) {
+            return Result.error(e.getMessage());
+        }
     }
 }

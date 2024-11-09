@@ -1,17 +1,18 @@
 package org.example.userservice.service.impl;
 
-import jdk.nashorn.internal.parser.Token;
-import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.userservice.mapper.UserMapper;
 import org.example.userservice.pojo.entity.User;
+
 import org.example.userservice.result.Result;
 import org.example.userservice.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserMapper userMapper;
@@ -33,8 +34,8 @@ public class UserServiceImpl implements UserService {
             return Result.error("邮箱已存在");
         }
         // 设置注册时间
-        user.setCreatedAt(OffsetDateTime.now());
-        user.setUpdatedAt(OffsetDateTime.now());
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
 
         // 密码加密
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -57,6 +58,7 @@ public class UserServiceImpl implements UserService {
         }
 
         // 生成JWT Token
+
 
         // 返回成功结果
         return Result.success(Token);

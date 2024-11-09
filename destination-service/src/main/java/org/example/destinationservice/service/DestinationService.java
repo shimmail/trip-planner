@@ -1,12 +1,10 @@
 package org.example.destinationservice.service;
 
-
-import org.example.destinationservice.pojo.dto.DestinationDTO;
+import com.example.common.result.Result;
+import org.example.api.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
-import org.example.destinationservice.result.Result;
-
-import java.util.List;
 
 public interface DestinationService {
-    Result getDestinationsById(DestinationDTO destinationDTO);
+
+    Result<Destination> getDestinationsByName(DestinationDTO destinationDTO) throws Exception;
 }

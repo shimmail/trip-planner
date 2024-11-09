@@ -13,4 +13,6 @@ public interface DestinationMapper {
 
     @Select("select * from `tp-destinations`.`tp-destinations`where id = #{id}")
     Destination getDestinationsById(long id);
+    @Select("select * from `tp-destinations`.`tp-destinations`where name = #{name}")
+    Destination getDestinationsByName(String name);
 }

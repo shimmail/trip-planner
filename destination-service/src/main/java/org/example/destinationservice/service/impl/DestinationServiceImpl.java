@@ -1,17 +1,15 @@
 package org.example.destinationservice.service.impl;
-import org.apache.ibatis.annotations.Mapper;
+
+import com.example.common.result.Result;
+
+import lombok.extern.slf4j.Slf4j;
 import org.example.destinationservice.mapper.DestinationMapper;
-import org.example.destinationservice.pojo.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
-import org.example.destinationservice.result.Result;
 import org.example.destinationservice.service.DestinationService;
 import org.springframework.stereotype.Service;
-import sun.security.krb5.internal.crypto.Des;
-
-import java.time.OffsetDateTime;
-import java.util.List;
-
+import org.example.api.dto.DestinationDTO;
 @Service
+@Slf4j
 public class DestinationServiceImpl implements DestinationService {
     private final DestinationMapper destinationMapper;
 
@@ -20,12 +18,21 @@ public class DestinationServiceImpl implements DestinationService {
     }
 
     @Override
-    public Result getDestinationsById(DestinationDTO destinationDTO) {
-        long id=destinationDTO.getId();
-        Destination destination = destinationMapper.getDestinationsById(id);
-        if (destination==null){
-            return Result.error("目的地不存在");
+    public Result<Destination> getDestinationsByName(DestinationDTO destinationDTO) throws Exception {
+
+        try {
+            Destination destination = destinationMapper.getDestinationsByName(destinationDTO.getName());
+            if (destination == null) {
+                return Result.error("目的地不存在");
+            }
+            return Result.success(destination);
+        } catch (Exception e) {
+
+            log.error("获取目的地时发生错误", e);
+
+            throw new Exception("目的地不存在", e);
         }
-        return Result.success(destinationMapper.getDestinationsById(id));
+
     }
+
 }

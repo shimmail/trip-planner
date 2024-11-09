@@ -1,13 +1,12 @@
 package org.example.destinationservice.pojo.entity;
-import org.example.destinationservice.pojo.dto.DestinationDTO;
 
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 
 /**
  * destinations
  */
 public class Destination {
-    private OffsetDateTime createdAt;
+    private LocalDateTime createdAt;
     /**
      * 行程描述
      */
@@ -24,10 +23,10 @@ public class Destination {
      * 目的地名称
      */
     private String name;
-    private OffsetDateTime updatedAt;
+    private LocalDateTime updatedAt;
 
-    public OffsetDateTime getCretedAt() { return createdAt; }
-    public void setCreatedAt(OffsetDateTime value) { this.createdAt = value; }
+    public LocalDateTime getCretedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime value) { this.createdAt = value; }
 
     public String getDescription() { return description; }
     public void setDescription(String value) { this.description = value; }
@@ -41,6 +40,6 @@ public class Destination {
     public String getName() { return name; }
     public void setName(String value) { this.name = value; }
 
-    public OffsetDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(OffsetDateTime value) { this.updatedAt = value; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime value) { this.updatedAt = value; }
 }
