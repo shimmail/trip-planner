@@ -12,7 +12,7 @@ public interface UserMapper {
     @Insert("INSERT INTO `tp-user` (username, email, password, created_at, updated_at) VALUES (#{username}, #{email}, #{password}, #{createdAt}, #{updatedAt})")
     void insertUser(User user);
 
-    List<User> findByUsername(String username);
+    User findByUsername(String username);
 
-    List<User> findByEmail(String email);
+    User findByEmail(String email);
 }

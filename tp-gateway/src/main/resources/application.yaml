@@ -27,4 +27,5 @@ spring:
             - AddRequestHeader=key, value
 gateway:
   ignoreUrls:
-    - /user/register
+    - /user/**
+    - /destination/**

@@ -612,3 +612,72 @@
 17:45:20:398  WARN 17108 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
 17:45:20:672  INFO 17108 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
 17:45:20:679  INFO 17108 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+18:05:59:909  INFO 26260 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+18:05:59:990  INFO 26260 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 26260 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+18:05:59:991  INFO 26260 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+18:06:00:470  INFO 26260 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=90b33645-70ae-3119-9f9a-fe3f463b6af4
+18:06:00:643  INFO 26260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+18:06:00:649  INFO 26260 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+18:06:00:649  INFO 26260 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+18:06:00:749  INFO 26260 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+18:06:00:749  INFO 26260 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 731 ms
+18:06:00:863  INFO 26260 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+18:06:01:132  INFO 26260 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+18:06:02:580  WARN 26260 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+18:06:02:621  INFO 26260 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+18:06:02:645  INFO 26260 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+18:06:02:645  INFO 26260 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+18:06:04:142  INFO 26260 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+18:06:04:571  INFO 26260 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 5.495 seconds (JVM running for 6.327)
+18:23:00:825  WARN 26260 --- [Thread-14] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+18:23:00:825  WARN 26260 --- [Thread-11] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+18:23:00:825  WARN 26260 --- [Thread-11] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+18:23:00:827  WARN 26260 --- [Thread-14] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+18:23:01:438  INFO 26260 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+18:23:01:445  INFO 26260 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+20:20:00:545  INFO 40876 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:20:00:615  INFO 40876 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 40876 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:20:00:616  INFO 40876 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+20:20:01:075  INFO 40876 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=90b33645-70ae-3119-9f9a-fe3f463b6af4
+20:20:01:258  INFO 40876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+20:20:01:264  INFO 40876 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:20:01:264  INFO 40876 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:20:01:362  INFO 40876 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:20:01:362  INFO 40876 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 714 ms
+20:20:01:453  INFO 40876 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+20:20:01:694  INFO 40876 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:20:02:862  WARN 40876 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:20:02:901  INFO 40876 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+20:20:02:926  INFO 40876 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:20:02:926  INFO 40876 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:20:04:271  INFO 40876 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+20:20:04:643  INFO 40876 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 4.716 seconds (JVM running for 5.35)
+21:02:53:683  WARN 40876 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+21:02:53:682  WARN 40876 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+21:02:53:689  WARN 40876 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+21:02:53:690  WARN 40876 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+21:02:53:992  INFO 40876 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+21:02:54:001  INFO 40876 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+21:12:19:739  INFO 37068 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+21:12:19:806  INFO 37068 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 37068 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+21:12:19:807  INFO 37068 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+21:12:20:272  INFO 37068 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=90b33645-70ae-3119-9f9a-fe3f463b6af4
+21:12:20:442  INFO 37068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+21:12:20:448  INFO 37068 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:12:20:448  INFO 37068 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+21:12:20:543  INFO 37068 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+21:12:20:544  INFO 37068 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 705 ms
+21:12:20:638  INFO 37068 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+21:12:20:890  INFO 37068 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:12:22:147  WARN 37068 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+21:12:22:188  INFO 37068 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+21:12:22:212  INFO 37068 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+21:12:22:212  INFO 37068 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+21:12:23:621  INFO 37068 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+21:12:24:004  INFO 37068 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 4.882 seconds (JVM running for 5.571)
+22:37:32:290  WARN 37068 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+22:37:32:290  WARN 37068 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+22:37:32:301  WARN 37068 --- [Thread-10] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+22:37:32:304  WARN 37068 --- [Thread-13] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+22:37:32:735  INFO 37068 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+22:37:32:753  INFO 37068 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.

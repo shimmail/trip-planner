@@ -2,6 +2,7 @@ package org.example.gateway.filters;
 
 import javafx.application.Application;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.gateway.config.AuthProperties;
 import org.example.gateway.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import java.util.function.Consumer;
 @Component
 @RequiredArgsConstructor
 @EnableConfigurationProperties(AuthProperties.class)
+@Slf4j
 public class Filter implements GlobalFilter, Ordered {
 
     private final JwtUtil jwtUtil;
@@ -44,6 +46,7 @@ public class Filter implements GlobalFilter, Ordered {
 
         // 2. 判断请求路径是否在白名单中
         if (isIgnoreUrl(request.getPath().toString())) {
+            log.info("直接放行");
             return chain.filter(exchange);
         }
 
