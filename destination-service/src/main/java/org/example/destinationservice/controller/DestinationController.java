@@ -1,7 +1,7 @@
 package org.example.destinationservice.controller;
 
 
-import com.example.common.result.Result;
+import org.example.common.result.Result;
 import org.example.api.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
 import org.example.destinationservice.service.DestinationService;

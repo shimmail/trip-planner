@@ -1,6 +1,6 @@
 package org.example.api.client;
 
-import com.example.common.result.Result;
+import org.example.common.result.Result;
 import org.example.api.dto.DestinationDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;

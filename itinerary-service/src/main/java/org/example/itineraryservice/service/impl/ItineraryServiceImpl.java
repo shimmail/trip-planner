@@ -1,14 +1,9 @@
 package org.example.itineraryservice.service.impl;
 
-import com.example.common.page.PageVO;
-import com.example.common.result.Result;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.xml.internal.bind.v2.TODO;
+import org.example.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.client.DestinationClient;
 import org.example.api.dto.DestinationDTO;
-import org.example.destinationservice.pojo.entity.Destination;
-import org.example.destinationservice.pojo.vo.DestinationVO;
 import org.example.itineraryservice.mapper.ItineraryMapper;
 import org.example.itineraryservice.pojo.dto.ItineraryDTO;
 

@@ -1,6 +1,6 @@
 package org.example.destinationservice.service.impl;
 
-import com.example.common.result.Result;
+import org.example.common.result.Result;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.destinationservice.mapper.DestinationMapper;

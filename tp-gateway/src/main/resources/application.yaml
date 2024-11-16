@@ -28,4 +28,3 @@ spring:
 gateway:
   ignoreUrls:
     - /user/**
-    - /destination/**

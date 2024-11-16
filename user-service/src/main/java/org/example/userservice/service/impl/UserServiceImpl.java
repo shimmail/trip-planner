@@ -1,7 +1,7 @@
 package org.example.userservice.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.userservice.utils.JwtUtil;
+import org.example.common.utils.JwtUtil;
 import org.example.userservice.mapper.UserMapper;
 import org.example.userservice.pojo.dto.UserDTO;
 import org.example.userservice.pojo.entity.User;

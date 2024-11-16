@@ -1,4 +1,4 @@
-package com.example.common.page;
+package org.example.common.page;
 
 import lombok.Data;
 

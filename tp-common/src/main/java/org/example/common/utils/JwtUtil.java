@@ -1,4 +1,4 @@
-package org.example.gateway.utils;
+package org.example.common.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -7,10 +7,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
-
 @Component
 public class JwtUtil {
-    private final String secretKey = "sss";
+    private final String secretKey = "mySecretKey";
 
     public static final long TOKEN_EXPIRE_TIME = 86400000L; // 24小时
     // 校验 Token

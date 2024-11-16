@@ -1,13 +1,9 @@
 package org.example.itineraryservice.controller;
 
-import com.example.common.result.Result;
+import org.example.common.result.Result;
 import org.example.itineraryservice.pojo.dto.ItineraryDTO;
-import org.example.itineraryservice.pojo.entity.Itinerary;
 import org.example.itineraryservice.service.ItineraryService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping("/itinerary")
