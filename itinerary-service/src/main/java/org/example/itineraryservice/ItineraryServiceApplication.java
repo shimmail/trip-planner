@@ -8,7 +8,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"org.example.itineraryservice", "org.example.common"})
 @EnableFeignClients(clients = {DestinationClient.class})
 @MapperScan("org.example.itineraryservice.mapper")
 public class ItineraryServiceApplication {

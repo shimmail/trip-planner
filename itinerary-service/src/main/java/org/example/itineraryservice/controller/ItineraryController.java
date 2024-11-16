@@ -15,15 +15,17 @@ public class ItineraryController {
     }
 
     @PostMapping("/saveItinerary")
-    public Result saveItinerary(@RequestBody ItineraryDTO itineraryDTO){
-        return itineraryService.saveItinerary(itineraryDTO);
+    public Result saveItinerary(@RequestBody ItineraryDTO itineraryDTO,
+                                @RequestHeader("Authorization") String token){
+        return itineraryService.saveItinerary(itineraryDTO,token);
     }
 
     @GetMapping("/listItinerariesById")
     public Result listItineraryByIds( @RequestParam(defaultValue = "1") Integer page,
-                                      @RequestParam(defaultValue = "10") Integer size) {
+                                      @RequestParam(defaultValue = "10") Integer size,
+                                      @RequestHeader("Authorization") String token) {
         try {
-            return itineraryService.listItinerariesById(page-1, size);
+            return itineraryService.listItinerariesById(page-1, size,token);
         } catch (IllegalArgumentException e) {
             return Result.error("参数错误");
         } catch (Exception e) {
