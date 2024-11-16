@@ -40,6 +40,8 @@ public class ItineraryServiceImpl implements ItineraryService {
                 return Result.error(destinations.getMsg());
             }
             long destinationId = destinations.getData().getId();
+
+
             return Result.success();
         } catch (Exception e) {
             return Result.error(e.getMessage());

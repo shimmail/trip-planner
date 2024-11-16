@@ -1,5 +1,6 @@
 package org.example.destinationservice.service.impl;
 
+import org.example.common.exception.DestinationException;
 import org.example.common.result.Result;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,14 +24,14 @@ public class DestinationServiceImpl implements DestinationService {
         try {
             Destination destination = destinationMapper.getDestinationsByName(destinationDTO.getName());
             if (destination == null) {
-                return Result.error("目的地不存在");
+                throw new DestinationException("目的地不存在");
             }
             return Result.success(destination);
-        } catch (Exception e) {
-
-            log.error("获取目的地时发生错误", e);
-
-            throw new Exception("目的地不存在", e);
+        }catch (DestinationException e){
+            throw new DestinationException(e.getMessage());
+        }
+        catch (Exception e) {
+            throw new Exception("查询目的地异常", e);
         }
 
     }
