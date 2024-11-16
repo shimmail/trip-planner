@@ -330,3 +330,240 @@ Caused by: com.alibaba.nacos.api.exception.NacosException: Client not connected,
 19:09:08:004  INFO 5308 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
 19:09:08:011  INFO 5308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 19:09:08:025  INFO 5308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+19:50:41:646  INFO 1548 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+19:50:41:732  INFO 1548 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 1548 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+19:50:41:733  INFO 1548 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+19:50:42:386  INFO 1548 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2c52a267-93c2-3947-a9dd-da4158f89aa1
+19:50:42:636  INFO 1548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+19:50:42:642  INFO 1548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+19:50:42:642  INFO 1548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+19:50:42:755  INFO 1548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+19:50:42:755  INFO 1548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 996 ms
+19:50:42:921  WARN 1548 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'destinationController' defined in file [D:\code\java\2\trip-planner\destination-service\target\classes\org\example\destinationservice\controller\DestinationController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'destinationServiceImpl' defined in file [D:\code\java\2\trip-planner\destination-service\target\classes\org\example\destinationservice\service\impl\DestinationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'destinationMapper': FactoryBean threw exception on object creation; nested exception is java.lang.ExceptionInInitializerError
+19:50:42:923  INFO 1548 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+19:50:42:933  INFO 1548 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+19:50:42:966 ERROR 1548 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'destinationController' defined in file [D:\code\java\2\trip-planner\destination-service\target\classes\org\example\destinationservice\controller\DestinationController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'destinationServiceImpl' defined in file [D:\code\java\2\trip-planner\destination-service\target\classes\org\example\destinationservice\service\impl\DestinationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'destinationMapper': FactoryBean threw exception on object creation; nested exception is java.lang.ExceptionInInitializerError
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) [spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) [spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) [spring-boot-2.6.13.jar:2.6.13]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) [spring-boot-2.6.13.jar:2.6.13]
+	at org.example.destinationservice.DestinationServiceApplication.main(DestinationServiceApplication.java:11) [classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'destinationServiceImpl' defined in file [D:\code\java\2\trip-planner\destination-service\target\classes\org\example\destinationservice\service\impl\DestinationServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'destinationMapper': FactoryBean threw exception on object creation; nested exception is java.lang.ExceptionInInitializerError
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'destinationMapper': FactoryBean threw exception on object creation; nested exception is java.lang.ExceptionInInitializerError
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:176) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:101) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1884) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getObjectForBeanInstance(AbstractAutowireCapableBeanFactory.java:1284) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:345) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 33 common frames omitted
+Caused by: java.lang.ExceptionInInitializerError: null
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_231]
+	at java.lang.Class.forName(Class.java:264) ~[na:1.8.0_231]
+	at com.sun.proxy.$Proxy67.<clinit>(Unknown Source) ~[na:na]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_231]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_231]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_231]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_231]
+	at java.lang.reflect.Proxy.newProxyInstance(Proxy.java:739) ~[na:1.8.0_231]
+	at org.apache.ibatis.binding.MapperProxyFactory.newInstance(MapperProxyFactory.java:48) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperProxyFactory.newInstance(MapperProxyFactory.java:53) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.binding.MapperRegistry.getMapper(MapperRegistry.java:50) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.apache.ibatis.session.Configuration.getMapper(Configuration.java:845) ~[mybatis-3.5.7.jar:3.5.7]
+	at org.mybatis.spring.SqlSessionTemplate.getMapper(SqlSessionTemplate.java:312) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.mybatis.spring.mapper.MapperFactoryBean.getObject(MapperFactoryBean.java:95) ~[mybatis-spring-2.0.6.jar:2.0.6]
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:169) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 43 common frames omitted
+Caused by: java.lang.RuntimeException: java.lang.ClassNotFoundException: Cannot find implementation for org.example.destinationservice.mapper.DestinationMapper
+	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:61) ~[mapstruct-1.5.2.Final.jar:na]
+	at org.example.destinationservice.mapper.DestinationMapper.<clinit>(DestinationMapper.java:16) ~[classes/:na]
+	... 58 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Cannot find implementation for org.example.destinationservice.mapper.DestinationMapper
+	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:75) ~[mapstruct-1.5.2.Final.jar:na]
+	at org.mapstruct.factory.Mappers.getMapper(Mappers.java:58) ~[mapstruct-1.5.2.Final.jar:na]
+	... 59 common frames omitted
+
+19:54:25:882  INFO 8948 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+19:54:25:969  INFO 8948 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 8948 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+19:54:25:969  INFO 8948 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+19:54:26:578  INFO 8948 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2c52a267-93c2-3947-a9dd-da4158f89aa1
+19:54:26:799  INFO 8948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+19:54:26:804  INFO 8948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+19:54:26:805  INFO 8948 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+19:54:26:913  INFO 8948 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+19:54:26:913  INFO 8948 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 917 ms
+19:54:27:169  INFO 8948 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+19:54:28:997  WARN 8948 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+19:54:29:058  INFO 8948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+19:54:29:085  INFO 8948 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+19:54:29:085  INFO 8948 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+19:54:30:934  INFO 8948 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP destination-service 192.168.184.88:8083 register finished
+19:54:31:497  INFO 8948 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 6.552 seconds (JVM running for 7.447)
+19:56:12:332  INFO 8948 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:56:12:332  INFO 8948 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+19:56:12:333  INFO 8948 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+19:56:12:353  WARN 8948 --- [http-nio-8083-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+19:56:28:420  INFO 8948 --- [http-nio-8083-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+19:56:29:026  INFO 8948 --- [http-nio-8083-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+20:03:34:716  WARN 8948 --- [http-nio-8083-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+20:10:30:735  WARN 8948 --- [http-nio-8083-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+20:52:57:247  WARN 8948 --- [Thread-12] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+20:52:57:247  WARN 8948 --- [Thread-15] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+20:52:57:252  WARN 8948 --- [Thread-12] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+20:52:57:254  WARN 8948 --- [Thread-15] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+20:52:57:669  INFO 8948 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+20:52:57:678  INFO 8948 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+20:52:57:689  INFO 8948 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+20:52:57:700  INFO 8948 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+20:53:01:013  INFO 20008 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:53:01:107  INFO 20008 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 20008 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:53:01:108  INFO 20008 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+20:53:01:710  INFO 20008 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2c52a267-93c2-3947-a9dd-da4158f89aa1
+20:53:01:934  INFO 20008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+20:53:01:942  INFO 20008 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:53:01:942  INFO 20008 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:53:02:055  INFO 20008 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:53:02:056  INFO 20008 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 920 ms
+20:53:02:311  INFO 20008 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:53:04:586  WARN 20008 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:53:04:646  INFO 20008 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+20:53:04:676  INFO 20008 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:53:04:676  INFO 20008 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:53:06:567  INFO 20008 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP destination-service 192.168.184.88:8083 register finished
+20:53:07:249  INFO 20008 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 7.271 seconds (JVM running for 8.294)
+20:53:25:469  INFO 20008 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:53:25:470  INFO 20008 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+20:53:25:471  INFO 20008 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+20:53:25:518  WARN 20008 --- [http-nio-8083-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+20:57:06:688  WARN 20008 --- [Thread-12] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+20:57:06:688  WARN 20008 --- [Thread-15] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+20:57:06:688  WARN 20008 --- [Thread-12] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+20:57:06:688  WARN 20008 --- [Thread-15] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+20:57:07:086  INFO 20008 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+20:57:07:092  INFO 20008 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+20:57:10:247  INFO 28168 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:57:10:336  INFO 28168 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 28168 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:57:10:337  INFO 28168 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+20:57:10:940  INFO 28168 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2c52a267-93c2-3947-a9dd-da4158f89aa1
+20:57:11:160  INFO 28168 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+20:57:11:167  INFO 28168 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:57:11:167  INFO 28168 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:57:11:299  INFO 28168 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:57:11:299  INFO 28168 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 934 ms
+20:57:11:545  INFO 28168 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:57:13:657  WARN 28168 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:57:13:711  INFO 28168 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+20:57:13:736  INFO 28168 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:57:13:736  INFO 28168 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:57:15:807  INFO 28168 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP destination-service 192.168.184.88:8083 register finished
+20:57:16:404  INFO 28168 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 7.171 seconds (JVM running for 8.16)
+21:01:42:211  WARN 28168 --- [Thread-16] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+21:01:42:211  WARN 28168 --- [Thread-13] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+21:01:42:211  WARN 28168 --- [Thread-13] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+21:01:42:211  WARN 28168 --- [Thread-16] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+21:01:42:597  INFO 28168 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+21:01:42:615  INFO 28168 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+21:01:46:245  INFO 20548 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+21:01:46:339  INFO 20548 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 20548 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+21:01:46:340  INFO 20548 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+21:01:46:954  INFO 20548 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2c52a267-93c2-3947-a9dd-da4158f89aa1
+21:01:47:175  INFO 20548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+21:01:47:181  INFO 20548 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:01:47:181  INFO 20548 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+21:01:47:312  INFO 20548 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+21:01:47:312  INFO 20548 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 943 ms
+21:01:47:593  INFO 20548 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:01:49:540  WARN 20548 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+21:01:49:596  INFO 20548 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+21:01:49:627  INFO 20548 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+21:01:49:627  INFO 20548 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+21:01:51:553  INFO 20548 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP destination-service 192.168.184.88:8083 register finished
+21:01:52:203  INFO 20548 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 6.941 seconds (JVM running for 7.95)
+21:02:01:238  INFO 20548 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:02:01:239  INFO 20548 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+21:02:01:240  INFO 20548 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+21:02:45:176  WARN 20548 --- [Thread-13] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+21:02:45:175  WARN 20548 --- [Thread-16] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+21:02:45:176  WARN 20548 --- [Thread-13] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+21:02:45:176  WARN 20548 --- [Thread-16] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+21:02:45:568  INFO 20548 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+21:02:45:575  INFO 20548 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+21:02:52:160  INFO 21036 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+21:02:52:254  INFO 21036 --- [main] o.e.d.DestinationServiceApplication      : Starting DestinationServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 21036 (D:\code\java\2\trip-planner\destination-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+21:02:52:254  INFO 21036 --- [main] o.e.d.DestinationServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+21:02:52:857  INFO 21036 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2c52a267-93c2-3947-a9dd-da4158f89aa1
+21:02:53:079  INFO 21036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+21:02:53:086  INFO 21036 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+21:02:53:086  INFO 21036 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+21:02:53:216  INFO 21036 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+21:02:53:216  INFO 21036 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 933 ms
+21:02:53:465  INFO 21036 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:02:55:426  WARN 21036 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+21:02:55:484  INFO 21036 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+21:02:55:518  INFO 21036 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+21:02:55:519  INFO 21036 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+21:02:57:437  INFO 21036 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP destination-service 192.168.184.88:8083 register finished
+21:02:58:032  INFO 21036 --- [main] o.e.d.DestinationServiceApplication      : Started DestinationServiceApplication in 6.901 seconds (JVM running for 7.944)
+21:03:02:577  INFO 21036 --- [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+21:03:02:577  INFO 21036 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+21:03:02:578  INFO 21036 --- [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+21:05:05:416  WARN 21036 --- [http-nio-8083-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+21:09:30:397  WARN 21036 --- [http-nio-8083-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+21:09:33:655  WARN 21036 --- [http-nio-8083-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+21:15:17:568  INFO 21036 --- [http-nio-8083-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+21:15:18:276  INFO 21036 --- [http-nio-8083-exec-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+21:15:35:577  WARN 21036 --- [http-nio-8083-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+21:15:39:931  WARN 21036 --- [http-nio-8083-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+21:16:17:289  WARN 21036 --- [http-nio-8083-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+21:17:52:192  WARN 21036 --- [http-nio-8083-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+21:19:51:384  WARN 21036 --- [http-nio-8083-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+21:20:39:865  WARN 21036 --- [http-nio-8083-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+21:22:16:417  WARN 21036 --- [http-nio-8083-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+21:54:37:922  WARN 21036 --- [Thread-16] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+21:54:37:922  WARN 21036 --- [Thread-13] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+21:54:37:922  WARN 21036 --- [Thread-13] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+21:54:37:922  WARN 21036 --- [Thread-16] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+21:54:38:444  INFO 21036 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+21:54:38:451  INFO 21036 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+21:54:38:459  INFO 21036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+21:54:38:467  INFO 21036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

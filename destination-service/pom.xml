@@ -64,6 +64,18 @@
             <artifactId>tp-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.2.Final</version>  <!-- 根据需要选择版本 -->
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.2.Final</version>  <!-- 根据需要选择版本 -->
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

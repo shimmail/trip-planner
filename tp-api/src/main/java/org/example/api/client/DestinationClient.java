@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient("destination-service")
 @Component
-
 public interface DestinationClient {
     @GetMapping("/destination/getDestinationsByName")
     Result <DestinationDTO> getDestinationsByName(@RequestParam String name);
+
+    @GetMapping("/destination/getDestinationsById")
+    Result <DestinationDTO> getDestinationsById(long id);
 }

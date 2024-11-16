@@ -1,11 +1,17 @@
 package org.example.itineraryservice.pojo.entity;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
  * itineraries
  */
 public class Itinerary {
+
+    private static long idCounter = 1;
+    /**
+     * ID 编号
+     */
+    private long id;
     private LocalDateTime createdAt;
     /**
      * 行程描述
@@ -19,10 +25,7 @@ public class Itinerary {
      * 结束日期
      */
     private LocalDateTime endDate;
-    /**
-     * ID 编号
-     */
-    private long id;
+
     /**
      * 开始日期
      */
@@ -37,16 +40,16 @@ public class Itinerary {
      */
     private long userId;
 
-    public Itinerary(LocalDateTime createdAt, String description, long destinationId, LocalDateTime endDate, long id, LocalDateTime startDate, Long status, LocalDateTime updatedAt, long userId) {
+    public Itinerary(LocalDateTime createdAt, String description, long destinationId, LocalDateTime endDate, LocalDateTime startDate, Long status, LocalDateTime updatedAt, long userId) {
         this.createdAt = createdAt;
         this.description = description;
         this.destinationId = destinationId;
         this.endDate = endDate;
-        this.id = id;
         this.startDate = startDate;
         this.status = status;
         this.updatedAt = updatedAt;
         this.userId = userId;
+        this.id = idCounter++;
     }
 
     public Itinerary() {

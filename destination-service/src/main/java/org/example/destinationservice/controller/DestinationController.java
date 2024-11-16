@@ -17,12 +17,18 @@ public class DestinationController {
     }
 
     @GetMapping("/getDestinationsByName")
-    public Result<Destination> getDestinationsByName(@RequestParam String name) {
+    public Result<DestinationDTO> getDestinationsByName(@RequestParam String name) {
         try {
-            DestinationDTO destinationDTO = new DestinationDTO();
-            destinationDTO.setName(name);
-            return destinationService.getDestinationsByName(destinationDTO);
+            return destinationService.getDestinationsByName(name);
         } catch (Exception e) {
+            return Result.error(e.getMessage());
+        }
+    }
+    @GetMapping("/getDestinationsById")
+    public Result<DestinationDTO> getDestinationsById(@RequestParam long id){
+        try {
+            return destinationService.getDestinationsById(id);
+        }catch (Exception e){
             return Result.error(e.getMessage());
         }
     }

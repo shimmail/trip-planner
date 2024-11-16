@@ -6,13 +6,22 @@ import java.time.LocalDateTime;
  * destinations
  */
 public class DestinationDTO {
+    public DestinationDTO(LocalDateTime createdAt, String description, long id, String location, String name, LocalDateTime updatedAt) {
+        this.createdAt = createdAt;
+        this.description = description;
+        this.id = id;
+        this.location = location;
+        this.name = name;
+        this.updatedAt = updatedAt;
+    }
+
     private LocalDateTime createdAt;
     /**
      * 行程描述
      */
     private String description;
     /**
-     * ID 编号
+     * 目的地id编号
      */
     private long id;
     /**
@@ -24,6 +33,10 @@ public class DestinationDTO {
      */
     private String name;
     private LocalDateTime updatedAt;
+
+    public DestinationDTO() {
+
+    }
 
 
     public LocalDateTime getCretedAt() { return createdAt; }

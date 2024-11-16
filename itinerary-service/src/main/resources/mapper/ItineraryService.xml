@@ -10,7 +10,8 @@
         LIMIT #{page}, #{size};
     </select>
     <select id="saveItinerary">
-
+        INSERT INTO `tp-itineraries`.`tp-itineraries` (created_at, description, destination_id, end_date, id, start_date, status, updated_at, user_id)
+        VALUES (#{createdAt}, #{description}, #{destinationId}, #{endDate}, #{id}, #{startDate}, #{status}, #{updatedAt}, #{userId});
     </select>
     <select id="getItinerariesById" resultType="org.example.itineraryservice.pojo.entity.Itinerary">
         SELECT `tp-itineraries`.id, user_id, destination_id, description, start_date, end_date, status, created_at, updated_at FROM `tp-itineraries`.`tp-itineraries`

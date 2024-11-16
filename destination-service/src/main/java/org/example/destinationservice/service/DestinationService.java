@@ -6,5 +6,7 @@ import org.example.destinationservice.pojo.entity.Destination;
 
 public interface DestinationService {
 
-    Result<Destination> getDestinationsByName(DestinationDTO destinationDTO) throws Exception;
+    Result<DestinationDTO> getDestinationsByName(String name) throws Exception;
+
+    Result<DestinationDTO> getDestinationsById(long id) throws Exception;
 }
