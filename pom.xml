@@ -19,6 +19,7 @@
         <module>destination-service</module>
         <module>tp-api</module>
         <module>tp-common</module>
+        <module>tp-gateway</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>

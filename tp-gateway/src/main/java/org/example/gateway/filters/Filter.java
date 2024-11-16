@@ -35,10 +35,7 @@ public class Filter implements GlobalFilter, Ordered {
     private final JwtUtil jwtUtil;
 
     private final AuthProperties authProperties;
-
-
-
-
+    
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // 1. 获取Request对象，以访问请求的相关信息
