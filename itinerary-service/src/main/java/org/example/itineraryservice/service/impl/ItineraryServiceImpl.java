@@ -123,9 +123,33 @@ public class ItineraryServiceImpl implements ItineraryService {
                 itineraryMapper.updateItinerary(itinerary);
                 return Result.success();
             }
+            else {
+                return Result.error("行程不存在");
+            }
         } catch (Exception e) {
-            return Result.error(e.getMessage());
+            throw new RuntimeException(e);
         }
-        return null;
     }
+
+    @Override
+    public Result deleteItinerary(long id, String token) throws Exception {
+        try {
+            long userId = jwtUtil.getId(token);
+            List<Itinerary> itineraries = itineraryMapper.listItinerariesById(userId);
+            Optional<Itinerary> optionalItinerary = itineraries.stream()
+                    .filter(itinerary -> itinerary.getId() == id)
+                    .findFirst();
+            if (optionalItinerary.isPresent()) {
+                itineraryMapper.deleteItinerary(id);
+                return Result.success();
+            }
+            else {
+                return Result.error("行程不存在");
+            }
+
+        } catch (Exception e) {
+           throw new RuntimeException(e.getMessage());
+        }
+
     }
+}

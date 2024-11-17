@@ -15,4 +15,6 @@ public interface ItineraryMapper {
     Itinerary getItinerariesById(long id);
 
     void updateItinerary(Itinerary itinerary);
+
+    void deleteItinerary(long id);
 }

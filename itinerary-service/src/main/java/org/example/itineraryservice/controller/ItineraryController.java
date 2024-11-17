@@ -39,4 +39,10 @@ public class ItineraryController {
                                   @RequestHeader("Authorization") String token) throws Exception {
         return itineraryService.updateItinerary(id,itineraryDTO,token);
     }
+
+    @DeleteMapping("/deleteItinerary")
+    public Result deleteItinerary(@RequestParam long id,
+                                  @RequestHeader("Authorization") String token) throws Exception {
+        return itineraryService.deleteItinerary(id,token);
+    }
 }

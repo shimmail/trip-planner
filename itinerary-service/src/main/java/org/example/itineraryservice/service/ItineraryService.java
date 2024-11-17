@@ -10,4 +10,6 @@ public interface ItineraryService {
     Result listItinerariesById(int page, int size, String token) throws Exception;
 
     Result updateItinerary(long id, ItineraryDTO itinerary, String token);
+
+    Result deleteItinerary(long id, String token) throws Exception;
 }
