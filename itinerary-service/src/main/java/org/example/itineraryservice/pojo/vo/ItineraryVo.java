@@ -1,8 +1,10 @@
 package org.example.itineraryservice.pojo.vo;
 
 import lombok.Data;
+import org.example.api.enums.ItineraryStatus;
 
 import java.time.LocalDateTime;
+@Data
 public class ItineraryVo {
         /**
          * 目的地名称
@@ -27,14 +29,14 @@ public class ItineraryVo {
         /**
          * 行程状态：0=待办，1=已完成
          */
-        private Long status;
+        private int status;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
 
         public ItineraryVo() {
         }
 
-        public ItineraryVo(String name, String location, String description, LocalDateTime startDate, LocalDateTime endDate, Long status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        public ItineraryVo(String name, String location, String description, LocalDateTime startDate, LocalDateTime endDate, int status, LocalDateTime createdAt, LocalDateTime updatedAt) {
                 this.name = name;
                 this.location = location;
                 this.description = description;
@@ -45,68 +47,5 @@ public class ItineraryVo {
                 this.updatedAt = updatedAt;
         }
 
-        public String getName() {
-                return name;
-        }
-
-        public void setName(String name) {
-                this.name = name;
-        }
-
-        public String getLocation() {
-                return location;
-        }
-
-        public void setLocation(String location) {
-                this.location = location;
-        }
-
-        public String getDescription() {
-                return description;
-        }
-
-        public void setDescription(String description) {
-                this.description = description;
-        }
-
-        public LocalDateTime getStartDate() {
-                return startDate;
-        }
-
-        public void setStartDate(LocalDateTime startDate) {
-                this.startDate = startDate;
-        }
-
-        public LocalDateTime getEndDate() {
-                return endDate;
-        }
-
-        public void setEndDate(LocalDateTime endDate) {
-                this.endDate = endDate;
-        }
-
-        public Long getStatus() {
-                return status;
-        }
-
-        public void setStatus(Long status) {
-                this.status = status;
-        }
-
-        public LocalDateTime getCreatedAt() {
-                return createdAt;
-        }
-
-        public void setCreatedAt(LocalDateTime createdAt) {
-                this.createdAt = createdAt;
-        }
-
-        public LocalDateTime getUpdatedAt() {
-                return updatedAt;
-        }
-
-        public void setUpdatedAt(LocalDateTime updatedAt) {
-                this.updatedAt = updatedAt;
-        }
 }
 

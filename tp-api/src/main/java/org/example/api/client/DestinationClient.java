@@ -14,5 +14,5 @@ public interface DestinationClient {
     Result <DestinationDTO> getDestinationsByName(@RequestParam String name);
 
     @GetMapping("/destination/getDestinationsById")
-    Result <DestinationDTO> getDestinationsById(long id);
+    Result <DestinationDTO> getDestinationsById(@RequestParam long id);
 }

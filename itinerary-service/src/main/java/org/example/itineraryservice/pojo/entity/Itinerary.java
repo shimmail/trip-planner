@@ -1,10 +1,14 @@
 package org.example.itineraryservice.pojo.entity;
-import javax.persistence.*;
+import lombok.Data;
+import lombok.Setter;
+import org.example.api.enums.ItineraryStatus;
+
 import java.time.LocalDateTime;
 
 /**
  * itineraries
  */
+@Data
 public class Itinerary {
 
     private static long idCounter = 1;
@@ -33,52 +37,28 @@ public class Itinerary {
     /**
      * 行程状态：0=待办，1=已完成
      */
-    private Long status;
+    private int status;
+
+
     private LocalDateTime updatedAt;
     /**
      * 外键，关联用户表
      */
     private long userId;
 
-    public Itinerary(LocalDateTime createdAt, String description, long destinationId, LocalDateTime endDate, LocalDateTime startDate, Long status, LocalDateTime updatedAt, long userId) {
+    public Itinerary(LocalDateTime createdAt, String description, long destinationId, LocalDateTime endDate, LocalDateTime startDate, LocalDateTime updatedAt, long userId) {
         this.createdAt = createdAt;
         this.description = description;
         this.destinationId = destinationId;
         this.endDate = endDate;
         this.startDate = startDate;
-        this.status = status;
         this.updatedAt = updatedAt;
         this.userId = userId;
         this.id = idCounter++;
+        this.status = ItineraryStatus.TODO.getCode();
     }
 
     public Itinerary() {
     }
 
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime value) { this.createdAt = value; }
-
-    public String getDescription() { return description; }
-    public void setDescription(String value) { this.description = value; }
-
-    public long getDestinationId() { return destinationId; }
-    public void setDestinationId(long value) { this.destinationId = value; }
-
-    public LocalDateTime getEndDate() { return endDate; }
-    public void setEndDate(LocalDateTime value) { this.endDate = value; }
-
-    public long getId() { return id; }
-    public void setId(long value) { this.id = value; }
-
-    public LocalDateTime getStartDate() { return startDate; }
-    public void setStartDate(LocalDateTime value) { this.startDate = value; }
-
-    public Long getStatus() { return status; }
-    public void setStatus(Long value) { this.status = value; }
-
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(LocalDateTime value) { this.updatedAt = value; }
-
-    public long getUserId() { return userId; }
-    public void setUserId(long value) { this.userId = value; }
 }

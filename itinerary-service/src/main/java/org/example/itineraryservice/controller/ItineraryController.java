@@ -1,7 +1,7 @@
 package org.example.itineraryservice.controller;
 
 import org.example.common.result.Result;
-import org.example.itineraryservice.pojo.dto.ItineraryDTO;
+import org.example.api.dto.ItineraryDTO;
 import org.example.itineraryservice.service.ItineraryService;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,5 +31,12 @@ public class ItineraryController {
         } catch (Exception e) {
             return Result.error(e.getMessage());
         }
+    }
+
+    @PutMapping("/updateItinerary")
+    public Result updateItinerary(@RequestParam long id,
+                                  @RequestBody ItineraryDTO itineraryDTO,
+                                  @RequestHeader("Authorization") String token) throws Exception {
+        return itineraryService.updateItinerary(id,itineraryDTO,token);
     }
 }

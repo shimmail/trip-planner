@@ -1,7 +1,9 @@
-package org.example.itineraryservice.pojo.dto;
+package org.example.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.protobuf.Enum;
 import lombok.Data;
+import org.example.api.enums.ItineraryStatus;
 
 import java.time.LocalDateTime;
 
@@ -26,5 +28,6 @@ public class ItineraryDTO {
     @JsonProperty("end_date")
     private LocalDateTime endDate;
 
+    private int status;
 
 }

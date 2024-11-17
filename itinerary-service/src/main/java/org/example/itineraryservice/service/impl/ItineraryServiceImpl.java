@@ -5,9 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.api.client.DestinationClient;
 import org.example.api.dto.DestinationDTO;
 import org.example.common.utils.JwtUtil;
-import org.example.destinationservice.pojo.entity.Destination;
 import org.example.itineraryservice.mapper.ItineraryMapper;
-import org.example.itineraryservice.pojo.dto.ItineraryDTO;
+import org.example.api.dto.ItineraryDTO;
 
 import org.example.itineraryservice.pojo.entity.Itinerary;
 import org.example.itineraryservice.pojo.vo.ItineraryVo;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -47,7 +47,7 @@ public class ItineraryServiceImpl implements ItineraryService {
             }
             long destinationId = destinations.getData().getId();
 
-            Itinerary itinerary = new Itinerary(LocalDateTime.now(),itineraryDTO.getDestinationDescription(),destinationId,itineraryDTO.getEndDate(),itineraryDTO.getStartDate(),0L,LocalDateTime.now(),userId);
+            Itinerary itinerary = new Itinerary(LocalDateTime.now(), itineraryDTO.getDestinationDescription(), destinationId, itineraryDTO.getEndDate(), itineraryDTO.getStartDate(), LocalDateTime.now(), userId);
             itineraryMapper.saveItinerary(itinerary);
             return Result.success();
         } catch (Exception e) {
@@ -63,7 +63,7 @@ public class ItineraryServiceImpl implements ItineraryService {
             // 调用 Mapper 获取行程信息
             Itinerary i = itineraryMapper.getItinerariesById(id);
 
-            List<Itinerary> itineraries = itineraryMapper.listItinerariesById(id, page, size);
+            List<Itinerary> itineraries = itineraryMapper.pageListItinerariesById(id, page, size);
             List<ItineraryVo> itineraryVos = itineraries.stream().map(itinerary -> {
                 ItineraryVo vo = new ItineraryVo();
                 vo.setCreatedAt(itinerary.getCreatedAt());
@@ -90,5 +90,42 @@ public class ItineraryServiceImpl implements ItineraryService {
         }
     }
 
+    @Override
+    public Result updateItinerary(long id, ItineraryDTO itineraryDTO, String token) {
+        try {
+            long destinationId = 0;
 
-}
+            long userId = jwtUtil.getId(token);
+            String name = itineraryDTO.getDestinationName();
+            if (name != null) {
+                Result<DestinationDTO> destinations = destinationClient.getDestinationsByName(name);
+                if (destinations.getCode() == 0) {
+                    return Result.error(destinations.getMsg());
+                }
+                destinationId = destinations.getData().getId();
+            }
+
+
+            List<Itinerary> itineraries = itineraryMapper.listItinerariesById(userId);
+            Optional<Itinerary> optionalItinerary = itineraries.stream()
+                    .filter(itinerary -> itinerary.getId() == id)
+                    .findFirst();
+
+            if (optionalItinerary.isPresent()) {
+                Itinerary itinerary = optionalItinerary.get();
+                itinerary.setDescription(itineraryDTO.getDestinationDescription());
+                itinerary.setDestinationId(destinationId);
+                itinerary.setStartDate(itineraryDTO.getStartDate());
+                itinerary.setEndDate(itineraryDTO.getEndDate());
+                itinerary.setUpdatedAt(LocalDateTime.now());
+                itinerary.setUserId(userId);
+                itinerary.setStatus(itineraryDTO.getStatus());
+                itineraryMapper.updateItinerary(itinerary);
+                return Result.success();
+            }
+        } catch (Exception e) {
+            return Result.error(e.getMessage());
+        }
+        return null;
+    }
+    }
