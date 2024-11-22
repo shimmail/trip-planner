@@ -1,0 +1,55 @@
+09:01:07:794  INFO 6428 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+09:01:08:148  INFO 6428 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 6428 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+09:01:08:150  INFO 6428 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+09:01:10:168  INFO 6428 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bb43d412-361c-39a8-af74-3e64a32318b8
+09:01:12:442  INFO 6428 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+09:01:30:351  WARN 6428 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+09:01:30:481  INFO 6428 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 24.934 seconds (JVM running for 27.339)
+19:48:39:749  INFO 15600 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+19:48:39:974  INFO 15600 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 15600 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+19:48:39:975  INFO 15600 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+19:48:40:775  INFO 15600 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bb43d412-361c-39a8-af74-3e64a32318b8
+19:48:41:751  INFO 15600 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+19:48:44:038  WARN 15600 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+19:48:44:086  INFO 15600 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 5.283 seconds (JVM running for 6.452)
+20:15:28:955  INFO 19100 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:15:29:149  INFO 19100 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 19100 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+20:15:29:150  INFO 19100 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+20:15:29:981  INFO 19100 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bb43d412-361c-39a8-af74-3e64a32318b8
+20:15:30:950  INFO 19100 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:15:33:249  WARN 19100 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:15:33:294  INFO 19100 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 5.44 seconds (JVM running for 8.653)
+20:20:26:715  INFO 23276 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:20:26:901  INFO 23276 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 23276 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+20:20:26:901  INFO 23276 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+20:20:27:763  INFO 23276 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=bb43d412-361c-39a8-af74-3e64a32318b8
+20:20:28:751  INFO 23276 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:20:31:029  WARN 23276 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:20:31:075  INFO 23276 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 5.304 seconds (JVM running for 6.404)
+21:21:05:170  INFO 33972 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+21:21:05:423  INFO 33972 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 33972 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+21:21:05:423  INFO 33972 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+21:21:06:479  INFO 33972 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3dc1ebe7-b1cb-3adc-8691-c8683c0f482f
+21:21:07:715  INFO 33972 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:21:11:267  WARN 33972 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+21:21:11:313  INFO 33972 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 7.245 seconds (JVM running for 8.397)
+21:27:19:803  INFO 22880 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+21:27:19:957  INFO 22880 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 22880 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+21:27:19:957  INFO 22880 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+21:27:20:693  INFO 22880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+21:27:20:697  INFO 22880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+21:27:20:727  INFO 22880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+21:27:21:074  INFO 22880 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a8304847-f585-3ea9-8357-85175bb8a648
+21:27:22:277  INFO 22880 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:27:26:396  WARN 22880 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+21:27:26:441  INFO 22880 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 7.573 seconds (JVM running for 8.877)
+21:43:13:479  INFO 30164 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+21:43:13:651  INFO 30164 --- [main] o.e.d.DestinationServiceApplicationTests : Starting DestinationServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 30164 (started by shimeng in D:\code\java\2\trip-planner\destination-service)
+21:43:13:651  INFO 30164 --- [main] o.e.d.DestinationServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+21:43:14:364  INFO 30164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+21:43:14:367  INFO 30164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+21:43:14:387  INFO 30164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+21:43:14:633  INFO 30164 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a8304847-f585-3ea9-8357-85175bb8a648
+21:43:15:804  INFO 30164 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+21:43:19:699  WARN 30164 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+21:43:19:739  INFO 30164 --- [main] o.e.d.DestinationServiceApplicationTests : Started DestinationServiceApplicationTests in 7.168 seconds (JVM running for 8.112)

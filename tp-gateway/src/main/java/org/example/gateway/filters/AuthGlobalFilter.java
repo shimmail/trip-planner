@@ -23,7 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @EnableConfigurationProperties(AuthProperties.class)
 @Slf4j
-public class Filter implements GlobalFilter, Ordered {
+public class AuthGlobalFilter  implements GlobalFilter, Ordered {
 
     private final JwtUtil jwtUtil;
 

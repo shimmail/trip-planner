@@ -57,9 +57,9 @@ public class ItineraryServiceImpl implements ItineraryService {
 
     // 查询行程
     @Override
-    public Result listItinerariesById(int page, int size, String token) throws Exception {
+    public Result listItinerariesById(int page, int size, String userInfo) throws Exception {
         try {
-            long id = jwtUtil.getId(token);
+            long id = Long.parseLong(userInfo);
             // 调用 Mapper 获取行程信息
             Itinerary i = itineraryMapper.getItinerariesById(id);
 

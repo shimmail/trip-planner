@@ -1,0 +1,14 @@
+# 使用官方 OpenJDK 镜像作为基础镜像
+FROM openjdk:8-jdk-slim
+
+#   设置工作目录
+WORKDIR /app
+
+# 将应用的 jar 包复制到容器内
+COPY target/tp-gateway.jar /app/tp-gateway.jar
+
+# 暴露应用运行的端口
+EXPOSE 8080
+
+# 启动应用
+ENTRYPOINT ["java", "-jar", "tp-gateway.jar"]

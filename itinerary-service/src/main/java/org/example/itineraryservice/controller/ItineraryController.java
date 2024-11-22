@@ -23,9 +23,9 @@ public class ItineraryController {
     @GetMapping("/listItinerariesById")
     public Result listItineraryByIds( @RequestParam(defaultValue = "1") Integer page,
                                       @RequestParam(defaultValue = "10") Integer size,
-                                      @RequestHeader("Authorization") String token) {
+                                      @RequestHeader(value = "userInfo",required = false)String userInfo) {
         try {
-            return itineraryService.listItinerariesById(page-1, size,token);
+            return itineraryService.listItinerariesById(page-1, size,userInfo);
         } catch (IllegalArgumentException e) {
             return Result.error("参数错误");
         } catch (Exception e) {
