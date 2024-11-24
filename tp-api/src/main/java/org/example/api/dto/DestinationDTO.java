@@ -1,12 +1,15 @@
 package org.example.api.dto;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
 
 /**
  * destinations
  */
+@Data
 public class DestinationDTO {
-    public DestinationDTO(LocalDateTime createdAt, String description, long id, String location, String name, LocalDateTime updatedAt) {
+    public DestinationDTO(LocalDateTime createdAt, String description, Long id, String location, String name, LocalDateTime updatedAt) {
         this.createdAt = createdAt;
         this.description = description;
         this.id = id;
@@ -23,7 +26,7 @@ public class DestinationDTO {
     /**
      * 目的地id编号
      */
-    private long id;
+    private Long id;
     /**
      * 位置
      */
@@ -38,22 +41,4 @@ public class DestinationDTO {
 
     }
 
-
-    public LocalDateTime getCretedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime value) { this.createdAt = value; }
-
-    public String getDescription() { return description; }
-    public void setDescription(String value) { this.description = value; }
-
-    public long getId() { return id; }
-    public void setId(long value) { this.id = value; }
-
-    public String getLocation() { return location; }
-    public void setLocation(String value) { this.location = value; }
-
-    public String getName() { return name; }
-    public void setName(String value) { this.name = value; }
-
-    public LocalDateTime getUpdatedAt() { return updatedAt; }
-    public void setUpdatedAt(LocalDateTime value) { this.updatedAt = value; }
 }

@@ -15,17 +15,15 @@ public class ItineraryController {
     }
 
     @PostMapping("/saveItinerary")
-    public Result saveItinerary(@RequestBody ItineraryDTO itineraryDTO,
-                                @RequestHeader("Authorization") String token){
-        return itineraryService.saveItinerary(itineraryDTO,token);
+    public Result saveItinerary(@RequestBody ItineraryDTO itineraryDTO){
+        return itineraryService.saveItinerary(itineraryDTO);
     }
 
     @GetMapping("/listItinerariesById")
     public Result listItineraryByIds( @RequestParam(defaultValue = "1") Integer page,
-                                      @RequestParam(defaultValue = "10") Integer size,
-                                      @RequestHeader(value = "userInfo",required = false)String userInfo) {
+                                      @RequestParam(defaultValue = "10") Integer size) {
         try {
-            return itineraryService.listItinerariesById(page-1, size,userInfo);
+            return itineraryService.listItinerariesById(page-1, size);
         } catch (IllegalArgumentException e) {
             return Result.error("参数错误");
         } catch (Exception e) {
@@ -34,15 +32,13 @@ public class ItineraryController {
     }
 
     @PutMapping("/updateItinerary")
-    public Result updateItinerary(@RequestParam long id,
-                                  @RequestBody ItineraryDTO itineraryDTO,
-                                  @RequestHeader("Authorization") String token) throws Exception {
-        return itineraryService.updateItinerary(id,itineraryDTO,token);
+    public Result updateItinerary(@RequestParam Long id,
+                                  @RequestBody ItineraryDTO itineraryDTO) throws Exception {
+        return itineraryService.updateItinerary(id,itineraryDTO);
     }
 
     @DeleteMapping("/deleteItinerary")
-    public Result deleteItinerary(@RequestParam long id,
-                                  @RequestHeader("Authorization") String token) throws Exception {
-        return itineraryService.deleteItinerary(id,token);
+    public Result deleteItinerary(@RequestParam long id) throws Exception {
+        return itineraryService.deleteItinerary(id);
     }
 }

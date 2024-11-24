@@ -1,62 +1,14 @@
-09:01:36:935  INFO 9620 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:01:37:315  INFO 9620 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 9620 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-09:01:37:317  INFO 9620 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-09:01:39:293  INFO 9620 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=81ad5cd5-63c8-36df-bb4d-2e142d606edc
-09:01:40:412  INFO 9620 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:01:42:122  INFO 9620 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:01:59:648  WARN 9620 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:01:59:702  INFO 9620 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 25.156 seconds (JVM running for 27.512)
-19:48:49:823  INFO 10824 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-19:48:49:993  INFO 10824 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 10824 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-19:48:49:994  INFO 10824 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-19:48:50:890  INFO 10824 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=81ad5cd5-63c8-36df-bb4d-2e142d606edc
-19:48:51:423  INFO 10824 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-19:48:52:185  INFO 10824 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-19:48:54:354  WARN 10824 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-19:48:54:383  INFO 10824 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 5.487 seconds (JVM running for 6.597)
-20:15:36:729  INFO 26380 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-20:15:36:852  INFO 26380 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 26380 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-20:15:36:853  INFO 26380 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-20:15:37:746  INFO 26380 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=81ad5cd5-63c8-36df-bb4d-2e142d606edc
-20:15:38:250  INFO 26380 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-20:15:38:987  INFO 26380 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-20:15:41:311  WARN 26380 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-20:15:41:342  INFO 26380 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 5.515 seconds (JVM running for 6.852)
-20:20:34:927  INFO 33828 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-20:20:35:093  INFO 33828 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 33828 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-20:20:35:094  INFO 33828 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-20:20:35:892  INFO 33828 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=81ad5cd5-63c8-36df-bb4d-2e142d606edc
-20:20:36:383  INFO 33828 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-20:20:37:128  INFO 33828 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-20:20:39:453  WARN 33828 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-20:20:39:475  INFO 33828 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 5.487 seconds (JVM running for 6.526)
-21:21:15:549  INFO 32380 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-21:21:15:718  INFO 32380 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 32380 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-21:21:15:719  INFO 32380 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-21:21:16:569  INFO 32380 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=72a053c9-18e1-3b21-a950-c0e4009c9ef4
-21:21:17:164  INFO 32380 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-21:21:17:965  INFO 32380 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-21:21:21:491  WARN 32380 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-21:21:21:519  INFO 32380 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 7.021 seconds (JVM running for 8.104)
-21:27:30:427  INFO 33036 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-21:27:30:587  INFO 33036 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 33036 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-21:27:30:587  INFO 33036 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-21:27:31:296  INFO 33036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-21:27:31:301  INFO 33036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-21:27:31:322  INFO 33036 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-21:27:31:708  INFO 33036 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1b2aecb0-6ad3-3059-81fb-68c76fa9d400
-21:27:32:301  INFO 33036 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-21:27:33:196  INFO 33036 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-21:27:36:878  WARN 33036 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-21:27:36:897  INFO 33036 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 7.365 seconds (JVM running for 8.384)
-21:43:25:904  INFO 23476 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-21:43:26:075  INFO 23476 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 23476 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
-21:43:26:075  INFO 23476 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
-21:43:26:774  INFO 23476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-21:43:26:777  INFO 23476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-21:43:26:798  INFO 23476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-21:43:27:074  INFO 23476 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1b2aecb0-6ad3-3059-81fb-68c76fa9d400
-21:43:27:647  INFO 23476 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-21:43:28:536  INFO 23476 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-21:43:32:322  WARN 23476 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-21:43:32:344  INFO 23476 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 7.436 seconds (JVM running for 8.419)
+14:32:46:298  INFO 18584 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+14:32:46:450  INFO 18584 --- [main] o.e.i.ItineraryServiceApplicationTests   : Starting ItineraryServiceApplicationTests using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 18584 (started by shimeng in D:\code\java\2\trip-planner\itinerary-service)
+14:32:46:451  INFO 18584 --- [main] o.e.i.ItineraryServiceApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+14:32:47:233  INFO 18584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:32:47:236  INFO 18584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+14:32:47:258  INFO 18584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+14:32:47:518  INFO 18584 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=77db5d8f-2ade-3c1b-89c8-f1f1c97bf135
+14:32:47:844  INFO 18584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:32:47:847  INFO 18584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:32:47:850  INFO 18584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+14:32:48:091  INFO 18584 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+14:32:48:963  INFO 18584 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+14:32:55:079  WARN 18584 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+14:32:55:112  INFO 18584 --- [main] o.e.i.ItineraryServiceApplicationTests   : Started ItineraryServiceApplicationTests in 9.921 seconds (JVM running for 10.892)

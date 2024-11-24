@@ -28,3 +28,30 @@ spring:
 gateway:
   ignoreUrls:
     - /user/**
+knife4j:
+  gateway:
+    enabled: true
+    strategy: manual
+    discover:
+      enabled: true
+      version: openapi3
+      excluded-services:
+        - gateway-service
+    routes:
+      - name: user-service
+        service-name: user-service
+        context-path: /
+        url: /user-service/v3/api-docs?group=user-service
+        order: 1
+
+      - name: itinerary-service
+        service-name: itinerary-service
+        context-path: /
+        url: /itinerary-service/v3/api-docs?group=order-service
+        order: 2
+
+      - name: destination-service
+        service-name: destination-service
+        context-path: /
+        url: /destination-service/v3/api-docs?group=finance-service
+        order: 3

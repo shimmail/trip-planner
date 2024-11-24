@@ -3,19 +3,21 @@ import lombok.Data;
 import lombok.Setter;
 import org.example.api.enums.ItineraryStatus;
 
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 /**
  * itineraries
  */
 @Data
+
 public class Itinerary {
 
-    private static long idCounter = 1;
+
     /**
      * ID 编号
      */
-    private long id;
+    private Long id;
     private LocalDateTime createdAt;
     /**
      * 行程描述
@@ -24,7 +26,7 @@ public class Itinerary {
     /**
      * 外键，关联目的地表
      */
-    private long destinationId;
+    private Long destinationId;
     /**
      * 结束日期
      */
@@ -44,7 +46,7 @@ public class Itinerary {
     /**
      * 外键，关联用户表
      */
-    private long userId;
+    private Long userId;
 
     public Itinerary(LocalDateTime createdAt, String description, long destinationId, LocalDateTime endDate, LocalDateTime startDate, LocalDateTime updatedAt, long userId) {
         this.createdAt = createdAt;
@@ -54,7 +56,6 @@ public class Itinerary {
         this.startDate = startDate;
         this.updatedAt = updatedAt;
         this.userId = userId;
-        this.id = idCounter++;
         this.status = ItineraryStatus.TODO.getCode();
     }
 

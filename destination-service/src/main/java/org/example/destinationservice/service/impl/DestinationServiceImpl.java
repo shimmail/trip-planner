@@ -41,7 +41,7 @@ public class DestinationServiceImpl implements DestinationService {
     }
 
     @Override
-    public Result<DestinationDTO> getDestinationsById(long id) throws Exception {
+    public Result<DestinationDTO> getDestinationsById(Long id) throws Exception {
         try {
             Destination destination = destinationMapper.getDestinationsById(id);
             if (destination == null) {
@@ -53,7 +53,7 @@ public class DestinationServiceImpl implements DestinationService {
             destinationDTO.setName(destination.getName());
             destinationDTO.setDescription(destination.getDescription());
             destinationDTO.setLocation(destination.getLocation());
-            destinationDTO.setCreatedAt(destination.getCretedAt());
+            destinationDTO.setCreatedAt(destination.getCreatedAt());
             destinationDTO.setUpdatedAt(destination.getUpdatedAt());
 
             return Result.success(destinationDTO);

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Insert("INSERT INTO `tp-user` (username, email, password, created_at, updated_at) VALUES (#{username}, #{email}, #{password}, #{createdAt}, #{updatedAt})")
+    @Insert("INSERT INTO `tp-user`.`tp-user` (username, email, password, created_at, updated_at) VALUES (#{username}, #{email}, #{password}, #{createdAt}, #{updatedAt})")
     void insertUser(User user);
 
     User findByUsername(String username);

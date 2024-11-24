@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class User {
     private LocalDateTime createdAt;
     private String email;
-    private long id;
+    private Long id;
     private String password;
     private LocalDateTime updatedAt;
     private String username;
@@ -18,7 +18,7 @@ public class User {
     public String getEmail() { return email; }
     public void setEmail(String value) { this.email = value; }
 
-    public long getId() { return id; }
+    public Long getId() { return id; }
     public void setId(long value) { this.id = value; }
 
     public String getPassword() { return password; }

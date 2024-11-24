@@ -14,12 +14,6 @@
     <name>tp-gateway</name>
     <description>tp-gateway</description>
     <dependencies>
-
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>tp-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
         <!--网关-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -55,6 +49,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
             <version>${spring-boot-starter-amqp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>tp-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>

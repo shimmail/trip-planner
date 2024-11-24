@@ -1,6 +1,7 @@
 package org.example.destinationservice.controller;
 
-
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.common.result.Result;
 import org.example.api.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
@@ -25,7 +26,7 @@ public class DestinationController {
         }
     }
     @GetMapping("/getDestinationsById")
-    public Result<DestinationDTO> getDestinationsById(@RequestParam long id){
+    public Result<DestinationDTO> getDestinationsById(@RequestParam Long id){
         try {
             return destinationService.getDestinationsById(id);
         }catch (Exception e){

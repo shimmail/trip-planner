@@ -8,5 +8,5 @@ public interface DestinationService {
 
     Result<DestinationDTO> getDestinationsByName(String name) throws Exception;
 
-    Result<DestinationDTO> getDestinationsById(long id) throws Exception;
+    Result<DestinationDTO> getDestinationsById(Long id) throws Exception;
 }

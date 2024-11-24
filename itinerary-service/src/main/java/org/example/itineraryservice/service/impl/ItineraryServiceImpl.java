@@ -1,10 +1,12 @@
 package org.example.itineraryservice.service.impl;
 
+import lombok.Lombok;
 import org.example.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.client.DestinationClient;
 import org.example.api.dto.DestinationDTO;
 import org.example.common.utils.JwtUtil;
+import org.example.common.utils.UserContext;
 import org.example.itineraryservice.mapper.ItineraryMapper;
 import org.example.api.dto.ItineraryDTO;
 
@@ -24,19 +26,17 @@ import java.util.stream.Collectors;
 public class ItineraryServiceImpl implements ItineraryService {
     private final DestinationClient destinationClient;
     private final ItineraryMapper itineraryMapper;
-    private final JwtUtil jwtUtil;
 
     public ItineraryServiceImpl(DestinationClient destinationClient, ItineraryMapper itineraryMapper, JwtUtil jwtUtil) {
         this.destinationClient = destinationClient;
         this.itineraryMapper = itineraryMapper;
-        this.jwtUtil = jwtUtil;
     }
 
     // 创建行程
     @Override
-    public Result saveItinerary(ItineraryDTO itineraryDTO, String token) {
+    public Result saveItinerary(ItineraryDTO itineraryDTO) {
         try {
-            long userId = jwtUtil.getId(token);
+            Long userId = UserContext.getUser();
             String name = itineraryDTO.getDestinationName();
             if (name == null || name.trim().isEmpty()) {
                 return Result.error("目的地不可为空");
@@ -45,7 +45,7 @@ public class ItineraryServiceImpl implements ItineraryService {
             if (destinations.getCode() == 0) {
                 return Result.error(destinations.getMsg());
             }
-            long destinationId = destinations.getData().getId();
+            Long destinationId = destinations.getData().getId();
 
             Itinerary itinerary = new Itinerary(LocalDateTime.now(), itineraryDTO.getDestinationDescription(), destinationId, itineraryDTO.getEndDate(), itineraryDTO.getStartDate(), LocalDateTime.now(), userId);
             itineraryMapper.saveItinerary(itinerary);
@@ -57,9 +57,9 @@ public class ItineraryServiceImpl implements ItineraryService {
 
     // 查询行程
     @Override
-    public Result listItinerariesById(int page, int size, String userInfo) throws Exception {
+    public Result listItinerariesById(int page, int size) throws Exception {
         try {
-            long id = Long.parseLong(userInfo);
+            long id = UserContext.getUser();
             // 调用 Mapper 获取行程信息
             Itinerary i = itineraryMapper.getItinerariesById(id);
 
@@ -70,7 +70,7 @@ public class ItineraryServiceImpl implements ItineraryService {
                 vo.setDescription(itinerary.getDescription());
                 vo.setEndDate(itinerary.getEndDate());
 
-                // 调用目的地模块获得行程目的地和目的地位置
+                // 调用目的地模块获得行程目的地
                 long d_id = itinerary.getDestinationId();
                 Result<DestinationDTO> destinationDTOResult = destinationClient.getDestinationsById(d_id);
 
@@ -91,11 +91,11 @@ public class ItineraryServiceImpl implements ItineraryService {
     }
 
     @Override
-    public Result updateItinerary(long id, ItineraryDTO itineraryDTO, String token) {
+    public Result updateItinerary(Long id, ItineraryDTO itineraryDTO) {
         try {
-            long destinationId = 0;
+            Long destinationId = null;
 
-            long userId = jwtUtil.getId(token);
+            Long userId = UserContext.getUser();
             String name = itineraryDTO.getDestinationName();
             if (name != null) {
                 Result<DestinationDTO> destinations = destinationClient.getDestinationsByName(name);
@@ -132,9 +132,9 @@ public class ItineraryServiceImpl implements ItineraryService {
     }
 
     @Override
-    public Result deleteItinerary(long id, String token) throws Exception {
+    public Result deleteItinerary(Long id) throws Exception {
         try {
-            long userId = jwtUtil.getId(token);
+            Long userId = UserContext.getUser();
             List<Itinerary> itineraries = itineraryMapper.listItinerariesById(userId);
             Optional<Itinerary> optionalItinerary = itineraries.stream()
                     .filter(itinerary -> itinerary.getId() == id)

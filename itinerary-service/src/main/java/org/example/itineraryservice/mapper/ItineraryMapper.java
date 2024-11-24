@@ -10,11 +10,11 @@ public interface ItineraryMapper {
 
     void saveItinerary(Itinerary itinerary);
 
-    List<Itinerary> pageListItinerariesById(long id, int page, int size);
-    List<Itinerary> listItinerariesById(long id);
-    Itinerary getItinerariesById(long id);
+    List<Itinerary> pageListItinerariesById(Long id, int page, int size);
+    List<Itinerary> listItinerariesById(Long id);
+    Itinerary getItinerariesById(Long id);
 
     void updateItinerary(Itinerary itinerary);
 
-    void deleteItinerary(long id);
+    void deleteItinerary(Long id);
 }
