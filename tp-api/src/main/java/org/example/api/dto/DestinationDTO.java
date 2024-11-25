@@ -16,6 +16,7 @@ public class DestinationDTO {
         this.location = location;
         this.name = name;
         this.updatedAt = updatedAt;
+
     }
 
     private LocalDateTime createdAt;

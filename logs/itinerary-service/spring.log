@@ -1,648 +1,116 @@
-08:28:52:048  INFO 3884 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-08:28:52:168  INFO 3884 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 3884 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-08:28:52:169  INFO 3884 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-08:28:52:814  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-08:28:52:816  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-08:28:52:834  INFO 3884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-08:28:53:046  INFO 3884 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-08:28:53:194  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:28:53:195  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:28:53:196  INFO 3884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:28:53:367  INFO 3884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-08:28:53:375  INFO 3884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-08:28:53:375  INFO 3884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-08:28:53:516  INFO 3884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-08:28:53:517  INFO 3884 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1280 ms
-08:28:53:707  INFO 3884 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-08:28:54:066  INFO 3884 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-08:28:58:450  WARN 3884 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-08:28:58:538  INFO 3884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-08:28:59:236  INFO 3884 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-08:28:59:236  INFO 3884 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-08:29:09:502 ERROR 3884 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, itinerary-service register failed...NacosRegistration{nacosDiscoveryProperties=NacosDiscoveryProperties{serverAddr='192.168.184.130:8850', username='', password='', endpoint='', namespace='', watchDelay=30000, logName='', service='itinerary-service', weight=1.0, clusterName='DEFAULT', group='DEFAULT_GROUP', namingLoadCacheAtStart='false', metadata={IPv6=null, preserved.register.source=SPRING_CLOUD}, registerEnabled=true, ip='192.168.184.88', networkInterface='', port=8082, secure=false, accessKey='', secretKey='', heartBeatInterval=null, heartBeatTimeout=null, ipDeleteTimeout=null, instanceEnabled=true, ephemeral=true, failureToleranceEnabled=false}, ipDeleteTimeout=null, failFast=true}},
-
-com.alibaba.nacos.api.exception.NacosException: Client not connected, current status:STARTING
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:639) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:619) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.requestToServer(NamingGrpcClientProxy.java:356) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.doRegisterService(NamingGrpcClientProxy.java:209) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.registerService(NamingGrpcClientProxy.java:123) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate.registerService(NamingClientProxyDelegate.java:98) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.java:152) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:75) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:232) [spring-cloud-commons-3.1.3.jar:3.1.3]
-	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.java:78) [spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:133) [spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.java:98) [spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:86) [spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:47) [spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:46) [spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) [spring-context-5.3.23.jar:5.3.23]
-	at java.lang.Iterable.forEach(Iterable.java:75) ~[na:1.8.0_231]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) [spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.example.itineraryservice.ItineraryServiceApplication.main(ItineraryServiceApplication.java:17) ~[classes/:na]
-
-08:29:09:506  WARN 3884 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is java.lang.reflect.UndeclaredThrowableException
-08:29:10:549  INFO 3884 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-08:29:10:574  INFO 3884 --- [main] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-08:29:10:626 ERROR 3884 --- [main] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is java.lang.reflect.UndeclaredThrowableException
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.23.jar:5.3.23]
-	at java.lang.Iterable.forEach(Iterable.java:75) ~[na:1.8.0_231]
-	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:935) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:586) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) [spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) [spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) [spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) [spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) [spring-boot-2.6.13.jar:2.6.13]
-	at org.example.itineraryservice.ItineraryServiceApplication.main(ItineraryServiceApplication.java:17) [classes/:na]
-Caused by: java.lang.reflect.UndeclaredThrowableException: null
-	at org.springframework.util.ReflectionUtils.rethrowRuntimeException(ReflectionUtils.java:147) ~[spring-core-5.3.23.jar:5.3.23]
-	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:83) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.register(AbstractAutoServiceRegistration.java:232) ~[spring-cloud-commons-3.1.3.jar:3.1.3]
-	at com.alibaba.cloud.nacos.registry.NacosAutoServiceRegistration.register(NacosAutoServiceRegistration.java:78) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.start(AbstractAutoServiceRegistration.java:133) ~[spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.bind(AbstractAutoServiceRegistration.java:98) ~[spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:86) ~[spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.cloud.client.serviceregistry.AbstractAutoServiceRegistration.onApplicationEvent(AbstractAutoServiceRegistration.java:47) ~[spring-cloud-commons-3.1.3.jar:3.1.3]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:176) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:169) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:143) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:421) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:378) ~[spring-context-5.3.23.jar:5.3.23]
-	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:46) ~[spring-boot-2.6.13.jar:2.6.13]
-	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.23.jar:5.3.23]
-	... 14 common frames omitted
-Caused by: com.alibaba.nacos.api.exception.NacosException: Client not connected, current status:STARTING
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:639) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.common.remote.client.RpcClient.request(RpcClient.java:619) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.requestToServer(NamingGrpcClientProxy.java:356) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.doRegisterService(NamingGrpcClientProxy.java:209) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.gprc.NamingGrpcClientProxy.registerService(NamingGrpcClientProxy.java:123) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate.registerService(NamingClientProxyDelegate.java:98) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.nacos.client.naming.NacosNamingService.registerInstance(NacosNamingService.java:152) ~[nacos-client-2.2.0.jar:na]
-	at com.alibaba.cloud.nacos.registry.NacosServiceRegistry.register(NacosServiceRegistry.java:75) ~[spring-cloud-starter-alibaba-nacos-discovery-2021.0.5.0.jar:2021.0.5.0]
-	... 27 common frames omitted
-
-08:29:10:634  WARN 3884 --- [Thread-18] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-08:29:10:635  WARN 3884 --- [Thread-21] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-08:29:10:635  WARN 3884 --- [Thread-18] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-08:29:10:637  WARN 3884 --- [Thread-21] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-08:46:28:993  INFO 19356 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-08:46:29:127  INFO 19356 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 19356 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-08:46:29:128  INFO 19356 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-08:46:29:764  INFO 19356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-08:46:29:766  INFO 19356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-08:46:29:784  INFO 19356 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-08:46:30:031  INFO 19356 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-08:46:30:172  INFO 19356 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:46:30:173  INFO 19356 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:46:30:174  INFO 19356 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:46:30:358  INFO 19356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-08:46:30:366  INFO 19356 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-08:46:30:366  INFO 19356 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-08:46:30:511  INFO 19356 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-08:46:30:511  INFO 19356 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1339 ms
-08:46:30:746  INFO 19356 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-08:46:31:120  INFO 19356 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-08:46:35:208  WARN 19356 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-08:46:35:296  INFO 19356 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-08:46:35:983  INFO 19356 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-08:46:35:983  INFO 19356 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-08:46:38:179  INFO 19356 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-08:46:38:836  INFO 19356 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 10.892 seconds (JVM running for 11.895)
-08:48:52:312  INFO 19356 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-08:48:52:312  INFO 19356 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-08:48:52:313  INFO 19356 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-08:50:09:540  INFO 19356 --- [http-nio-8082-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-08:50:09:754  INFO 19356 --- [http-nio-8082-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-08:55:40:042  WARN 19356 --- [Thread-17] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-08:55:40:042  WARN 19356 --- [Thread-17] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-08:55:40:042  WARN 19356 --- [Thread-20] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-08:55:40:043  WARN 19356 --- [Thread-20] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-08:55:40:630  INFO 19356 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-08:55:40:637  INFO 19356 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-08:55:40:645  INFO 19356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-08:55:40:657  INFO 19356 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-08:55:48:779  INFO 27188 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-08:55:48:934  INFO 27188 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 27188 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-08:55:48:935  INFO 27188 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-08:55:49:621  INFO 27188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-08:55:49:623  INFO 27188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-08:55:49:645  INFO 27188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
-08:55:50:055  INFO 27188 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-08:55:50:301  INFO 27188 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:55:50:302  INFO 27188 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:55:50:304  INFO 27188 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-08:55:50:708  INFO 27188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-08:55:50:725  INFO 27188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-08:55:50:726  INFO 27188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-08:55:51:097  INFO 27188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-08:55:51:098  INFO 27188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2123 ms
-08:55:51:457  INFO 27188 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-08:55:59:794  INFO 27188 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-08:56:03:623  WARN 27188 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-08:56:03:731  INFO 27188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-08:56:04:338  INFO 27188 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-08:56:04:339  INFO 27188 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-08:56:06:712  INFO 27188 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-08:56:07:338  INFO 27188 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 19.592 seconds (JVM running for 20.863)
-08:56:44:345  INFO 27188 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-08:56:44:346  INFO 27188 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-08:56:44:348  INFO 27188 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-09:01:58:276  WARN 27188 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:01:58:276  WARN 27188 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:01:58:276  WARN 27188 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:01:58:276  WARN 27188 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:02:06:010  INFO 27188 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:02:06:020  INFO 27188 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:02:11:431  INFO 30076 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:02:11:599  INFO 30076 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 30076 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:02:11:599  INFO 30076 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:02:12:276  INFO 30076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:02:12:279  INFO 30076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:02:12:305  INFO 30076 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-09:02:12:540  INFO 30076 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:02:12:693  INFO 30076 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:02:12:694  INFO 30076 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:02:12:696  INFO 30076 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:02:12:901  INFO 30076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:02:12:910  INFO 30076 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:02:12:911  INFO 30076 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:02:13:132  INFO 30076 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:02:13:132  INFO 30076 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1490 ms
-09:02:13:341  INFO 30076 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:02:13:833  INFO 30076 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:02:18:089  WARN 30076 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:02:18:200  INFO 30076 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:02:18:860  INFO 30076 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:02:18:861  INFO 30076 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:02:21:432  INFO 30076 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:02:22:053  INFO 30076 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.716 seconds (JVM running for 12.874)
-09:05:00:938  WARN 30076 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:05:00:938  WARN 30076 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:05:00:938  WARN 30076 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:05:00:938  WARN 30076 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:05:01:624  INFO 30076 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:05:01:629  INFO 30076 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:11:03:651  INFO 27096 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:11:03:808  INFO 27096 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 27096 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:11:03:809  INFO 27096 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:11:04:494  INFO 27096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:11:04:496  INFO 27096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:11:04:515  INFO 27096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-09:11:04:738  INFO 27096 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:11:04:861  INFO 27096 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:11:04:862  INFO 27096 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:11:04:864  INFO 27096 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:11:05:068  INFO 27096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:11:05:079  INFO 27096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:11:05:080  INFO 27096 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:11:05:312  INFO 27096 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:11:05:313  INFO 27096 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1460 ms
-09:11:05:514  INFO 27096 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:11:05:924  INFO 27096 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:11:09:746  WARN 27096 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:11:09:856  INFO 27096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:11:10:500  INFO 27096 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:11:10:501  INFO 27096 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:11:13:039  INFO 27096 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:11:13:621  INFO 27096 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.053 seconds (JVM running for 12.414)
-09:11:27:173  INFO 27096 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-09:11:27:174  INFO 27096 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-09:11:27:175  INFO 27096 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-09:16:30:499  WARN 27096 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:16:30:500  WARN 27096 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:16:30:500  WARN 27096 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:16:30:501  WARN 27096 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:16:30:998  INFO 27096 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:16:31:011  INFO 27096 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:16:40:154  INFO 25120 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:16:40:318  INFO 25120 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 25120 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:16:40:318  INFO 25120 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:16:41:206  INFO 25120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:16:41:210  INFO 25120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:16:41:251  INFO 25120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
-09:16:41:619  INFO 25120 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:16:41:792  INFO 25120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:16:41:793  INFO 25120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:16:41:795  INFO 25120 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:16:42:059  INFO 25120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:16:42:069  INFO 25120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:16:42:069  INFO 25120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:16:42:322  INFO 25120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:16:42:322  INFO 25120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1964 ms
-09:16:42:627  INFO 25120 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:16:43:114  INFO 25120 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:16:47:034  WARN 25120 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:16:47:183  INFO 25120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:16:47:837  INFO 25120 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:16:47:837  INFO 25120 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:16:50:761  INFO 25120 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:16:51:501  INFO 25120 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 12.452 seconds (JVM running for 13.591)
-09:16:58:543  INFO 25120 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-09:16:58:543  INFO 25120 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-09:16:58:544  INFO 25120 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-09:17:08:444  INFO 25120 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-09:17:08:753  INFO 25120 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-09:30:36:988  WARN 25120 --- [Thread-25] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:30:36:989  WARN 25120 --- [Thread-22] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:30:36:990  WARN 25120 --- [Thread-22] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:30:36:990  WARN 25120 --- [Thread-25] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:30:37:447  INFO 25120 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:30:37:456  INFO 25120 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:30:37:475  INFO 25120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-09:30:37:505  INFO 25120 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-09:30:41:435  INFO 24672 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:30:41:674  INFO 24672 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 24672 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:30:41:675  INFO 24672 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:30:42:468  INFO 24672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:30:42:470  INFO 24672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:30:42:492  INFO 24672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-09:30:42:740  INFO 24672 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:30:42:895  INFO 24672 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:30:42:895  INFO 24672 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:30:42:897  INFO 24672 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:30:43:227  INFO 24672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:30:43:244  INFO 24672 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:30:43:244  INFO 24672 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:30:43:527  INFO 24672 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:30:43:527  INFO 24672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1775 ms
-09:30:43:777  INFO 24672 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:30:44:305  INFO 24672 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:30:48:341  WARN 24672 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:30:48:539  INFO 24672 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:30:49:230  INFO 24672 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:30:49:230  INFO 24672 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:30:51:818  INFO 24672 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:30:52:462  INFO 24672 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 12.055 seconds (JVM running for 13.152)
-09:31:04:155  INFO 24672 --- [http-nio-8082-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-09:31:04:155  INFO 24672 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-09:31:04:157  INFO 24672 --- [http-nio-8082-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-09:31:08:570  INFO 24672 --- [http-nio-8082-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-09:31:09:208  INFO 24672 --- [http-nio-8082-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-09:34:49:808  WARN 24672 --- [Thread-22] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:34:49:808  WARN 24672 --- [Thread-25] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:34:49:808  WARN 24672 --- [Thread-22] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:34:49:811  WARN 24672 --- [Thread-25] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:34:50:333  INFO 24672 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:34:50:340  INFO 24672 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:34:50:352  INFO 24672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-09:34:50:366  INFO 24672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-09:34:54:203  INFO 2144 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:34:54:427  INFO 2144 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 2144 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:34:54:428  INFO 2144 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:34:55:303  INFO 2144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:34:55:307  INFO 2144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:34:55:350  INFO 2144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
-09:34:55:798  INFO 2144 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:34:56:021  INFO 2144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:34:56:022  INFO 2144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:34:56:023  INFO 2144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:34:56:348  INFO 2144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:34:56:368  INFO 2144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:34:56:368  INFO 2144 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:34:56:738  INFO 2144 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:34:56:739  INFO 2144 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2272 ms
-09:34:57:101  INFO 2144 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:34:57:569  INFO 2144 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:35:01:543  WARN 2144 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:35:01:818  INFO 2144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:35:02:553  INFO 2144 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:35:02:553  INFO 2144 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:35:04:967  INFO 2144 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:35:05:656  INFO 2144 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 12.571 seconds (JVM running for 13.558)
-09:35:12:732  WARN 2144 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:35:12:733  WARN 2144 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:35:12:734  WARN 2144 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:35:12:736  WARN 2144 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:35:13:317  INFO 2144 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:35:13:342  INFO 2144 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:35:21:199  INFO 13636 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:35:21:306  INFO 13636 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 13636 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:35:21:306  INFO 13636 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:35:22:055  INFO 13636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:35:22:057  INFO 13636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:35:22:074  INFO 13636 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-09:35:22:284  INFO 13636 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:35:22:444  INFO 13636 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:35:22:446  INFO 13636 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:35:22:447  INFO 13636 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:35:22:699  INFO 13636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:35:22:715  INFO 13636 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:35:22:715  INFO 13636 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:35:22:894  INFO 13636 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:35:22:894  INFO 13636 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1552 ms
-09:35:23:166  INFO 13636 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:35:23:672  INFO 13636 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:35:27:696  WARN 13636 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:35:27:795  INFO 13636 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:35:28:480  INFO 13636 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:35:28:480  INFO 13636 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:35:30:720  INFO 13636 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:35:31:357  INFO 13636 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.159 seconds (JVM running for 12.161)
-09:41:31:531  WARN 13636 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:41:31:531  WARN 13636 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:41:31:532  WARN 13636 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:41:31:533  WARN 13636 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:41:32:127  INFO 13636 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:41:32:142  INFO 13636 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:42:58:560  INFO 28440 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:42:58:669  INFO 28440 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 28440 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:42:58:669  INFO 28440 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:42:59:469  INFO 28440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:42:59:471  INFO 28440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:42:59:489  INFO 28440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-09:42:59:695  INFO 28440 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:42:59:904  INFO 28440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:42:59:906  INFO 28440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:42:59:909  INFO 28440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:43:00:150  INFO 28440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:43:00:158  INFO 28440 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:43:00:158  INFO 28440 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:43:00:297  INFO 28440 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:43:00:298  INFO 28440 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1595 ms
-09:43:00:525  INFO 28440 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:43:00:870  INFO 28440 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:43:04:720  WARN 28440 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:43:04:814  INFO 28440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:43:05:468  INFO 28440 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:43:05:469  INFO 28440 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:43:08:052  INFO 28440 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:43:08:857  INFO 28440 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.371 seconds (JVM running for 12.342)
-09:44:23:374  WARN 28440 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:44:23:374  WARN 28440 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:44:23:374  WARN 28440 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:44:23:375  WARN 28440 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:44:23:996  INFO 28440 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:44:24:002  INFO 28440 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:44:32:060  INFO 21568 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:44:32:199  INFO 21568 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 21568 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:44:32:200  INFO 21568 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:44:32:883  INFO 21568 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:44:32:885  INFO 21568 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:44:32:910  INFO 21568 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
-09:44:33:098  INFO 21568 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:44:33:219  INFO 21568 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:44:33:219  INFO 21568 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:44:33:220  INFO 21568 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:44:33:497  INFO 21568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:44:33:506  INFO 21568 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:44:33:506  INFO 21568 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:44:33:738  INFO 21568 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:44:33:738  INFO 21568 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1501 ms
-09:44:34:031  INFO 21568 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:44:34:421  INFO 21568 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:44:37:998  WARN 21568 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:44:38:186  INFO 21568 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:44:38:789  INFO 21568 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:44:38:790  INFO 21568 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:44:41:018  INFO 21568 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:44:41:705  INFO 21568 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 10.669 seconds (JVM running for 11.638)
-09:47:12:843  INFO 21568 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-09:47:12:844  INFO 21568 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-09:47:12:845  INFO 21568 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-09:47:13:827  INFO 21568 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-09:47:14:059  INFO 21568 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-09:48:21:372  WARN 21568 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:48:21:372  WARN 21568 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:48:21:372  WARN 21568 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:48:21:374  WARN 21568 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:48:21:793  INFO 21568 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:48:21:805  INFO 21568 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:48:21:827  INFO 21568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-09:48:21:850  INFO 21568 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-09:48:25:982  INFO 16284 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:48:26:192  INFO 16284 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 16284 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:48:26:192  INFO 16284 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:48:27:042  INFO 16284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:48:27:045  INFO 16284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:48:27:065  INFO 16284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-09:48:27:267  INFO 16284 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:48:27:373  INFO 16284 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:48:27:374  INFO 16284 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:48:27:375  INFO 16284 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:48:27:617  INFO 16284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:48:27:628  INFO 16284 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:48:27:628  INFO 16284 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:48:27:837  INFO 16284 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:48:27:837  INFO 16284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1594 ms
-09:48:28:103  INFO 16284 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:48:28:587  INFO 16284 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:48:32:328  WARN 16284 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:48:32:420  INFO 16284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:48:33:150  INFO 16284 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:48:33:150  INFO 16284 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:48:35:541  INFO 16284 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:48:36:160  INFO 16284 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.267 seconds (JVM running for 12.265)
-09:49:07:937  INFO 16284 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-09:49:07:938  INFO 16284 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-09:49:07:940  INFO 16284 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-09:49:08:244  INFO 16284 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-09:49:08:539  INFO 16284 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-09:49:33:716  WARN 16284 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:49:33:717  WARN 16284 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:49:33:717  WARN 16284 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:49:33:717  WARN 16284 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:49:34:179  INFO 16284 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:49:34:184  INFO 16284 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:49:34:191  INFO 16284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-09:49:34:202  INFO 16284 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-09:49:38:010  INFO 20212 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:49:38:169  INFO 20212 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 20212 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:49:38:170  INFO 20212 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:49:38:907  INFO 20212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:49:38:910  INFO 20212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:49:38:946  INFO 20212 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-09:49:39:181  INFO 20212 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:49:39:318  INFO 20212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:49:39:319  INFO 20212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:49:39:321  INFO 20212 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:49:39:530  INFO 20212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:49:39:541  INFO 20212 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:49:39:541  INFO 20212 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:49:39:757  INFO 20212 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:49:39:757  INFO 20212 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1544 ms
-09:49:39:958  INFO 20212 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:49:40:377  INFO 20212 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:49:44:469  WARN 20212 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:49:44:584  INFO 20212 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:49:45:302  INFO 20212 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:49:45:302  INFO 20212 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:49:48:021  INFO 20212 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:49:48:631  INFO 20212 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.745 seconds (JVM running for 12.988)
-09:51:53:822  WARN 20212 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:51:53:822  WARN 20212 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:51:53:823  WARN 20212 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:51:53:823  WARN 20212 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:51:54:280  INFO 20212 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:51:54:289  INFO 20212 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:52:02:293  INFO 31224 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:52:02:452  INFO 31224 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 31224 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:52:02:453  INFO 31224 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:52:03:130  INFO 31224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:52:03:132  INFO 31224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:52:03:152  INFO 31224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-09:52:03:376  INFO 31224 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:52:03:503  INFO 31224 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:52:03:504  INFO 31224 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:52:03:505  INFO 31224 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:52:03:699  INFO 31224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:52:03:709  INFO 31224 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:52:03:709  INFO 31224 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:52:04:011  INFO 31224 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:52:04:012  INFO 31224 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1514 ms
-09:52:04:185  INFO 31224 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:52:04:578  INFO 31224 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:52:08:513  WARN 31224 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:52:08:672  INFO 31224 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:52:09:388  INFO 31224 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:52:09:388  INFO 31224 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:52:12:134  INFO 31224 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:52:12:794  INFO 31224 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.61 seconds (JVM running for 12.833)
-09:53:13:012  INFO 31224 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-09:53:13:012  INFO 31224 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-09:53:13:013  INFO 31224 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-09:53:18:819  INFO 31224 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-09:53:19:159  INFO 31224 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-09:58:54:266  WARN 31224 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-09:58:54:267  WARN 31224 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-09:58:54:267  WARN 31224 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-09:58:54:268  WARN 31224 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-09:58:54:874  INFO 31224 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-09:58:54:883  INFO 31224 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-09:58:54:895  INFO 31224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-09:58:54:908  INFO 31224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-09:59:03:763  INFO 19916 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:59:03:957  INFO 19916 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 19916 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-09:59:03:958  INFO 19916 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-09:59:04:702  INFO 19916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-09:59:04:705  INFO 19916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-09:59:04:739  INFO 19916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-09:59:05:072  INFO 19916 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-09:59:05:234  INFO 19916 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:59:05:235  INFO 19916 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:59:05:237  INFO 19916 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-09:59:05:505  INFO 19916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-09:59:05:515  INFO 19916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-09:59:05:516  INFO 19916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-09:59:05:785  INFO 19916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-09:59:05:785  INFO 19916 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1785 ms
-09:59:05:992  INFO 19916 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-09:59:06:382  INFO 19916 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-09:59:10:201  WARN 19916 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-09:59:10:331  INFO 19916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-09:59:10:998  INFO 19916 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:59:10:999  INFO 19916 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:59:13:955  INFO 19916 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-09:59:14:800  INFO 19916 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 12.058 seconds (JVM running for 13.171)
-10:00:00:774  INFO 19916 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:00:00:775  INFO 19916 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:00:00:778  INFO 19916 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-10:00:10:271  INFO 19916 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:00:10:536  INFO 19916 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:01:42:436  WARN 19916 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-10:01:42:436  WARN 19916 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-10:01:42:436  WARN 19916 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-10:01:42:439  WARN 19916 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-10:01:42:888  INFO 19916 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-10:01:42:899  INFO 19916 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-10:01:42:908  INFO 19916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-10:01:42:924  INFO 19916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-10:01:47:048  INFO 26696 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-10:01:47:234  INFO 26696 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 26696 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-10:01:47:235  INFO 26696 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-10:01:47:931  INFO 26696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:01:47:934  INFO 26696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:01:47:952  INFO 26696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
-10:01:48:263  INFO 26696 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-10:01:48:461  INFO 26696 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:01:48:462  INFO 26696 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:01:48:464  INFO 26696 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:01:48:736  INFO 26696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-10:01:48:747  INFO 26696 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:01:48:747  INFO 26696 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-10:01:49:032  INFO 26696 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-10:01:49:032  INFO 26696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1749 ms
-10:01:49:239  INFO 26696 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-10:01:50:170  INFO 26696 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:01:54:838  WARN 26696 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-10:01:55:072  INFO 26696 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-10:01:55:805  INFO 26696 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-10:01:55:806  INFO 26696 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-10:01:59:275  INFO 26696 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-10:01:59:936  INFO 26696 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 14.003 seconds (JVM running for 15.096)
-10:03:19:972  INFO 26696 --- [http-nio-8082-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:03:19:972  INFO 26696 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:03:19:975  INFO 26696 --- [http-nio-8082-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-10:03:39:479  INFO 26696 --- [http-nio-8082-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:03:40:103  INFO 26696 --- [http-nio-8082-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:03:53:748  WARN 26696 --- [Thread-24] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-10:03:53:749  WARN 26696 --- [Thread-24] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-10:03:53:749  WARN 26696 --- [Thread-27] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-10:03:53:750  WARN 26696 --- [Thread-27] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-10:03:54:200  INFO 26696 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-10:03:54:212  INFO 26696 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-10:03:54:220  INFO 26696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-10:03:54:235  INFO 26696 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-10:03:57:654  INFO 16980 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-10:03:57:776  INFO 16980 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 16980 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
-10:03:57:776  INFO 16980 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
-10:03:58:481  INFO 16980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-10:03:58:483  INFO 16980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-10:03:58:500  INFO 16980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-10:03:58:682  INFO 16980 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
-10:03:58:827  INFO 16980 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:03:58:828  INFO 16980 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:03:58:829  INFO 16980 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-10:03:58:982  INFO 16980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
-10:03:58:991  INFO 16980 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-10:03:58:992  INFO 16980 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
-10:03:59:178  INFO 16980 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-10:03:59:179  INFO 16980 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1370 ms
-10:03:59:487  INFO 16980 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
-10:03:59:875  INFO 16980 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-10:04:03:403  WARN 16980 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-10:04:03:525  INFO 16980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
-10:04:04:181  INFO 16980 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-10:04:04:181  INFO 16980 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-10:04:06:314  INFO 16980 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
-10:04:06:994  INFO 16980 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 10.342 seconds (JVM running for 11.314)
-10:04:36:855  INFO 16980 --- [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-10:04:36:855  INFO 16980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-10:04:36:857  INFO 16980 --- [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-10:04:37:157  INFO 16980 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-10:04:37:379  INFO 16980 --- [http-nio-8082-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-10:08:11:536  WARN 16980 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-10:08:11:537  WARN 16980 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-10:08:11:537  WARN 16980 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-10:08:11:537  WARN 16980 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-10:08:12:190  INFO 16980 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-10:08:12:196  INFO 16980 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-10:08:12:203  INFO 16980 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-10:08:12:219  INFO 16980 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+20:16:08:624  INFO 17996 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:16:08:738  INFO 17996 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 17996 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:16:08:739  INFO 17996 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+20:16:09:617  INFO 17996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+20:16:09:621  INFO 17996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+20:16:09:646  INFO 17996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+20:16:09:864  INFO 17996 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
+20:16:10:015  INFO 17996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:16:10:016  INFO 17996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:16:10:018  INFO 17996 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:16:10:219  INFO 17996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+20:16:10:229  INFO 17996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:16:10:229  INFO 17996 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:16:10:435  INFO 17996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:16:10:435  INFO 17996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1657 ms
+20:16:10:750  INFO 17996 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+20:16:11:302  INFO 17996 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:16:15:187  WARN 17996 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:16:15:300  INFO 17996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+20:16:15:956  INFO 17996 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:16:15:956  INFO 17996 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:16:18:022  INFO 17996 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+20:16:18:600  INFO 17996 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.015 seconds (JVM running for 12.007)
+20:25:26:948  WARN 17996 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+20:25:26:948  WARN 17996 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+20:25:26:949  WARN 17996 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+20:25:26:950  WARN 17996 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+20:25:27:599  INFO 17996 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+20:25:27:633  INFO 17996 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+20:25:33:389  INFO 30308 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:25:33:523  INFO 30308 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 30308 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:25:33:523  INFO 30308 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+20:25:34:213  INFO 30308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+20:25:34:216  INFO 30308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+20:25:34:233  INFO 30308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+20:25:34:521  INFO 30308 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
+20:25:34:715  INFO 30308 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:25:34:718  INFO 30308 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:25:34:721  INFO 30308 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:25:34:996  INFO 30308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+20:25:35:013  INFO 30308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:25:35:015  INFO 30308 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:25:35:222  INFO 30308 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:25:35:223  INFO 30308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1662 ms
+20:25:35:434  INFO 30308 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+20:25:35:824  INFO 30308 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:25:39:728  WARN 30308 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:25:39:818  INFO 30308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+20:25:40:498  INFO 30308 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:25:40:498  INFO 30308 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:25:42:720  INFO 30308 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+20:25:43:357  INFO 30308 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.031 seconds (JVM running for 11.996)
+20:46:00:987  WARN 30308 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+20:46:00:987  WARN 30308 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+20:46:01:004  WARN 30308 --- [Thread-19] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+20:46:01:013  WARN 30308 --- [Thread-22] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+20:46:02:580  INFO 30308 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+20:46:02:589  INFO 30308 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+20:47:41:889  INFO 18516 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:47:42:006  INFO 18516 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 18516 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:47:42:007  INFO 18516 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+20:47:42:667  INFO 18516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+20:47:42:669  INFO 18516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+20:47:42:687  INFO 18516 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+20:47:42:911  INFO 18516 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
+20:47:43:055  INFO 18516 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:47:43:057  INFO 18516 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:47:43:058  INFO 18516 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:47:43:254  INFO 18516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+20:47:43:262  INFO 18516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:47:43:262  INFO 18516 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:47:43:418  INFO 18516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:47:43:418  INFO 18516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1372 ms
+20:47:43:606  INFO 18516 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+20:47:43:973  INFO 18516 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:47:48:708  WARN 18516 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:47:48:810  INFO 18516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+20:47:49:586  INFO 18516 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:47:49:586  INFO 18516 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:47:52:630  INFO 18516 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+20:47:53:628  INFO 18516 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 12.834 seconds (JVM running for 13.955)
+20:51:46:988  WARN 18516 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+20:51:46:989  WARN 18516 --- [Thread-21] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+20:51:46:989  WARN 18516 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+20:51:46:990  WARN 18516 --- [Thread-24] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+20:51:47:591  INFO 18516 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+20:51:47:600  INFO 18516 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+20:51:51:457  INFO 25216 --- [main] c.a.n.client.env.SearchableProperties    : properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:51:51:616  INFO 25216 --- [main] o.e.i.ItineraryServiceApplication        : Starting ItineraryServiceApplication using Java 1.8.0_231 on LAPTOP-FMC4J224 with PID 25216 (D:\code\java\2\trip-planner\itinerary-service\target\classes started by shimeng in D:\code\java\2\trip-planner)
+20:51:51:616  INFO 25216 --- [main] o.e.i.ItineraryServiceApplication        : No active profile set, falling back to 1 default profile: "default"
+20:51:52:454  INFO 25216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+20:51:52:456  INFO 25216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+20:51:52:476  INFO 25216 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+20:51:52:744  INFO 25216 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5f563a7b-863a-3fc4-85d2-ed55336f2741
+20:51:52:895  INFO 25216 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:51:52:896  INFO 25216 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:51:52:897  INFO 25216 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+20:51:53:102  INFO 25216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+20:51:53:112  INFO 25216 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+20:51:53:112  INFO 25216 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+20:51:53:347  INFO 25216 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+20:51:53:347  INFO 25216 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1688 ms
+20:51:53:635  INFO 25216 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'destination-service' URL not provided. Will try picking an instance via load-balancing.
+20:51:54:057  INFO 25216 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+20:51:57:782  WARN 25216 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+20:51:57:881  INFO 25216 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+20:51:58:554  INFO 25216 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:51:58:554  INFO 25216 --- [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:52:01:224  INFO 25216 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP itinerary-service 192.168.184.88:8082 register finished
+20:52:02:094  INFO 25216 --- [main] o.e.i.ItineraryServiceApplication        : Started ItineraryServiceApplication in 11.743 seconds (JVM running for 12.764)
+21:00:15:805  WARN 25216 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+21:00:15:805  WARN 25216 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+21:00:15:806  WARN 25216 --- [Thread-20] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+21:00:15:806  WARN 25216 --- [Thread-23] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+21:00:16:456  INFO 25216 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+21:00:16:473  INFO 25216 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.

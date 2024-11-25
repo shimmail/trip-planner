@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -17,7 +18,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Component
 @RequiredArgsConstructor
@@ -26,7 +29,7 @@ import java.util.List;
 public class AuthGlobalFilter  implements GlobalFilter, Ordered {
 
     private final JwtUtil jwtUtil;
-
+    private final StringRedisTemplate redisTemplate;
     private final AuthProperties authProperties;
 
     @Override
@@ -34,9 +37,18 @@ public class AuthGlobalFilter  implements GlobalFilter, Ordered {
         try {
             // 1. 获取Request对象，以访问请求的相关信息
             ServerHttpRequest request = exchange.getRequest();
+            String path = request.getPath().toString();
+            // 限流逻辑
+            if (!checkRateLimit(request)) {
+                log.info("限流触发，拒绝请求：{}", path);
+                ServerHttpResponse response = exchange.getResponse();
+                response.setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
+                String errorMessage = Result.error("请求过于频繁，请稍后再试").toJson();
+                return response.writeWith(Mono.just(response.bufferFactory().wrap(errorMessage.getBytes(StandardCharsets.UTF_8))));
+            }
 
             // 2. 判断请求路径是否在白名单中
-            if (isIgnoreUrl(request.getPath().toString())) {
+            if (isIgnoreUrl(path)){
                 log.info("直接放行");
                 return chain.filter(exchange);
             }
@@ -88,4 +100,22 @@ public class AuthGlobalFilter  implements GlobalFilter, Ordered {
         return 0;
     }
 
+
+    private boolean checkRateLimit(ServerHttpRequest request) {
+        String ip = request.getHeaders().getFirst("X-Forwarded-For");
+        if (ip == null) {
+            ip = request.getRemoteAddress().getAddress().getHostAddress();
+        }
+        String path = request.getPath().toString();
+        String key = ip + ":" + path;
+        String count = redisTemplate.opsForValue().get(key);
+        if (count == null) {
+            redisTemplate.opsForValue().set(key, "1", 10, TimeUnit.SECONDS); // 10秒内最多访问一次
+            return true;
+        } else if (Integer.parseInt(count) < 5) { // 限制每10秒最多访问5次
+            redisTemplate.opsForValue().increment(key);
+            return true;
+        }
+        return false;
+    }
 }
