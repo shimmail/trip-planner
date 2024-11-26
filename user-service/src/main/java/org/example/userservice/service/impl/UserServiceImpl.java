@@ -1,9 +1,9 @@
 package org.example.userservice.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.api.dto.UserDTO;
 import org.example.common.utils.JwtUtil;
 import org.example.userservice.mapper.UserMapper;
-import org.example.userservice.pojo.dto.UserDTO;
 import org.example.userservice.pojo.entity.User;
 
 import org.example.userservice.result.Result;
@@ -27,21 +27,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result registerUser(User user) {
-        if (userMapper.findByUsername(user.getUsername())!=null) {
+    public Result registerUser(UserDTO userDTO) {
+        if (userMapper.findByUsername(userDTO.getUsername())!=null) {
             return Result.error("用户名已存在");
         }
 
         // 校验邮箱是否已存在
-        if (userMapper.findByEmail(user.getEmail())!=null) {
+        if (userMapper.findByEmail(userDTO.getEmail())!=null) {
             return Result.error("邮箱已存在");
         }
-        // 设置注册时间
+        User user = new User();
+        user.setUsername(userDTO.getUsername());
+        user.setEmail(userDTO.getEmail());
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
 
         // 密码加密
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
         // 插入用户记录
         userMapper.insertUser(user);

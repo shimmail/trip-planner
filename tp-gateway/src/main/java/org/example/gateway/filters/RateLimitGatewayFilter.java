@@ -1,6 +1,5 @@
 package org.example.gateway.filters;
 
-import javafx.application.Application;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.common.result.Result;
@@ -26,12 +25,11 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @EnableConfigurationProperties(AuthProperties.class)
 @Slf4j
-public class AuthGlobalFilter  implements GlobalFilter, Ordered {
+public class RateLimitGatewayFilter implements GlobalFilter, Ordered {
 
     private final JwtUtil jwtUtil;
     private final StringRedisTemplate redisTemplate;
     private final AuthProperties authProperties;
-
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         try {

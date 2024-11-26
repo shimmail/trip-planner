@@ -1,7 +1,10 @@
 package org.example.gateway.utils;
 
+import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletRequest;
 
+@Component
 public class IPUtils {
 
     /**

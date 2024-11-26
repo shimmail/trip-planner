@@ -1,6 +1,6 @@
 package org.example.userservice.controller;
 
-import org.example.userservice.pojo.dto.UserDTO;
+import org.example.api.dto.UserDTO;
 import org.example.userservice.pojo.entity.User;
 import org.example.userservice.result.Result;
 import org.example.userservice.service.UserService;
@@ -15,8 +15,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody User user) {
-        return userService.registerUser(user);
+    public Result register(@RequestBody UserDTO userDTO) {
+        return userService.registerUser(userDTO);
     }
     // 用户登录
     @PostMapping("/login")

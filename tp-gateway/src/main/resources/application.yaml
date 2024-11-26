@@ -4,7 +4,7 @@ spring:
   application:
     name: gateway
   redis:
-    host: localhost           # Redis服务器地址
+    host: 192.168.184.130           # Redis服务器地址
     database: 1               # Redis数据库索引（默认为0）
     port: 6379                # Redis服务器连接端口
     timeout: 3000             # 连接超时时间（毫秒）
