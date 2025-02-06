@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 @EnableConfigurationProperties(AuthProperties.class)
 @Slf4j
-public class RateLimitGatewayFilter implements GlobalFilter, Ordered {
+public class GatewayFilter implements GlobalFilter, Ordered {
 
     private final JwtUtil jwtUtil;
     private final StringRedisTemplate redisTemplate;
@@ -36,14 +36,6 @@ public class RateLimitGatewayFilter implements GlobalFilter, Ordered {
             // 1. 获取Request对象，以访问请求的相关信息
             ServerHttpRequest request = exchange.getRequest();
             String path = request.getPath().toString();
-            // 限流逻辑
-            if (!checkRateLimit(request)) {
-                log.info("限流触发，拒绝请求：{}", path);
-                ServerHttpResponse response = exchange.getResponse();
-                response.setStatusCode(HttpStatus.TOO_MANY_REQUESTS);
-                String errorMessage = Result.error("请求过于频繁，请稍后再试").toJson();
-                return response.writeWith(Mono.just(response.bufferFactory().wrap(errorMessage.getBytes(StandardCharsets.UTF_8))));
-            }
 
             // 2. 判断请求路径是否在白名单中
             if (isIgnoreUrl(path)){
@@ -78,8 +70,6 @@ public class RateLimitGatewayFilter implements GlobalFilter, Ordered {
             // 将错误信息写入响应体
             return response.writeWith(Mono.just(response.bufferFactory().wrap(errorMessage.getBytes())));
         }
-
-
     }
 
     private boolean isIgnoreUrl(String path) {
@@ -91,29 +81,8 @@ public class RateLimitGatewayFilter implements GlobalFilter, Ordered {
         }
         return false;
     }
-
-
     @Override
     public int getOrder() {
         return 0;
-    }
-
-
-    private boolean checkRateLimit(ServerHttpRequest request) {
-        String ip = request.getHeaders().getFirst("X-Forwarded-For");
-        if (ip == null) {
-            ip = request.getRemoteAddress().getAddress().getHostAddress();
-        }
-        String path = request.getPath().toString();
-        String key = ip + ":" + path;
-        String count = redisTemplate.opsForValue().get(key);
-        if (count == null) {
-            redisTemplate.opsForValue().set(key, "1", 10, TimeUnit.SECONDS); // 10秒内最多访问一次
-            return true;
-        } else if (Integer.parseInt(count) < 5) { // 限制每10秒最多访问5次
-            redisTemplate.opsForValue().increment(key);
-            return true;
-        }
-        return false;
     }
 }

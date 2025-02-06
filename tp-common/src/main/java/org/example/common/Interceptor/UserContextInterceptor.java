@@ -18,7 +18,6 @@ public class UserContextInterceptor implements HandlerInterceptor {
             // 将用户ID存储到 ThreadLocal 中
             UserContext.setUser(Long.parseLong(userId));
         }
-
         // 继续请求流程
         return true;
     }
