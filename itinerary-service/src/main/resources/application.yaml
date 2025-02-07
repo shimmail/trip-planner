@@ -15,13 +15,6 @@ spring:
     db-config:
       update-strategy: not_null
       id-type: auto
-logging:
-  level:
-    com.hmall: debug
-  pattern:
-    dateformat: HH:mm:ss:SSS
-  file:
-    path: "logs/${spring.application.name}"
 feign:
   okhttp:
     enabled: true # 开启OKHttp功能

@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/destination-service-0.0.1-SNAPSHOT.jar /app/destination-service-0.0.1-SNAPSHOT.jar
 
 # 暴露应用运行的端口
-EXPOSE 8081
+EXPOSE 8083
 
 # 启动应用
 ENTRYPOINT ["java", "-jar", "destination-service-0.0.1-SNAPSHOT.jar"]

@@ -12,7 +12,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients(clients = {DestinationClient.class})
 @MapperScan("org.example.itineraryservice.mapper")
 public class ItineraryServiceApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(ItineraryServiceApplication.class, args);
     }

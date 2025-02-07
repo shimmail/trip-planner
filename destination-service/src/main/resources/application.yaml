@@ -1,11 +1,12 @@
 server:
-  port: 8083
+  port: 8081
 spring:
   application:
     name: destination-service
   cloud:
     nacos:
-      server-addr: 192.168.184.130:8850 # nacos地址
+      server-addr: 192.168.184.130:8850
+
   datasource:
     url: jdbc:mysql://192.168.184.130:3306/tp-destinations?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,10 +16,3 @@ spring:
     db-config:
       update-strategy: not_null
       id-type: auto
-logging:
-  level:
-    com.hmall: debug
-  pattern:
-    dateformat: HH:mm:ss:SSS
-  file:
-    path: "logs/${spring.application.name}"

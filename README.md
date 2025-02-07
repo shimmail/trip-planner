@@ -62,7 +62,7 @@ trip-planner/
 
 # 任务
 
-#### Spring Cloud Gateway进行用户身份校验
+### Spring Cloud Gateway进行用户身份校验
 
 在 `GatewayFilter` 中：
 
@@ -148,7 +148,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
 
 
-#### 服务注册与发现（Nacos）
+### 服务注册与发现（Nacos）
 
 - 每个微服务（如`destination-service`）启动时，向Nacos注册中心注册自身信息（服务名、IP、端口等）。
 - 其他服务（如`itinerary-service`）通过Nacos查询目标服务的可用实例列表，实现动态路由。
@@ -162,9 +162,11 @@ spring:
       server-addr: 192.168.184.130:8850
 ```
 
-#### 服务间调用
+### 服务间调用
 
-- DestinationClient 使 itinerary-service 可以调用 destination-service 里的方法获得目的地信息
+
+
+创建 Feign 客户端接口 DestinationClient 使 itinerary-service 可以调用 destination-service 里的方法获得目的地信息
 
 ```java
 @FeignClient("destination-service")

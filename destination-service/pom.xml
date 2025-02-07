@@ -90,6 +90,12 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
             <version>${spring-boot-starter-amqp.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>frequency-control-spring-boot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

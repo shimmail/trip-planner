@@ -6,6 +6,7 @@ import org.example.common.result.Result;
 import org.example.api.dto.DestinationDTO;
 import org.example.destinationservice.pojo.entity.Destination;
 import org.example.destinationservice.service.DestinationService;
+import org.example.frequencycontrolstarter.annotation.FrequencyAnnotation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,6 +18,7 @@ public class DestinationController {
         this.destinationService = destinationService;
     }
 
+    @FrequencyAnnotation(key = "getDestinationsByName", maxCount = 5, timeRange = 10, timeUnit = "SECONDS")
     @GetMapping("/getDestinationsByName")
     public Result<DestinationDTO> getDestinationsByName(@RequestParam String name) {
         try {

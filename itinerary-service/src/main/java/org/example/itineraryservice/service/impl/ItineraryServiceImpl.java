@@ -1,6 +1,4 @@
 package org.example.itineraryservice.service.impl;
-
-import lombok.Lombok;
 import org.example.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.client.DestinationClient;
@@ -26,7 +24,6 @@ import java.util.stream.Collectors;
 public class ItineraryServiceImpl implements ItineraryService {
     private final DestinationClient destinationClient;
     private final ItineraryMapper itineraryMapper;
-
     public ItineraryServiceImpl(DestinationClient destinationClient, ItineraryMapper itineraryMapper, JwtUtil jwtUtil) {
         this.destinationClient = destinationClient;
         this.itineraryMapper = itineraryMapper;
@@ -72,7 +69,12 @@ public class ItineraryServiceImpl implements ItineraryService {
 
                 // 调用目的地模块获得行程目的地
                 long d_id = itinerary.getDestinationId();
-                Result<DestinationDTO> destinationDTOResult = destinationClient.getDestinationsById(d_id);
+                Result<DestinationDTO> destinationDTOResult = null;
+                try {
+                    destinationDTOResult = destinationClient.getDestinationsById(d_id);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
 
                 DestinationDTO destinationDTO = destinationDTOResult.getData();
                 vo.setLocation(destinationDTO.getLocation());

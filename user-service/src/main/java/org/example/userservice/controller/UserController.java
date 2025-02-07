@@ -18,12 +18,13 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    @FrequencyAnnotation(maxCount = 5, timeRange = 60)
+    @FrequencyAnnotation(key = "register", maxCount = 10, timeRange = 10)
     public Result register(@RequestBody UserDTO userDTO) {
         return userService.registerUser(userDTO);
     }
     // 用户登录
     @PostMapping("/login")
+    @FrequencyAnnotation(key = "login", maxCount = 10, timeRange = 10)
     public Result login(@RequestBody UserDTO userDTO) {
         return userService.login(userDTO);
     }

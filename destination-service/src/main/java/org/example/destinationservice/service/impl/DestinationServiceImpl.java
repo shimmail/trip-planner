@@ -1,8 +1,6 @@
 package org.example.destinationservice.service.impl;
-
 import org.example.common.exception.DestinationException;
 import org.example.common.result.Result;
-
 import lombok.extern.slf4j.Slf4j;
 import org.example.destinationservice.mapper.DestinationMapper;
 import org.example.destinationservice.pojo.entity.Destination;
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 
 @Service
 @Slf4j
+
 public class DestinationServiceImpl implements DestinationService {
     private final DestinationMapper destinationMapper;
 

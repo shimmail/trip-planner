@@ -1,3 +1,4 @@
+
 package org.example.gateway.filters;
 
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.path;
+
 @Component
 @RequiredArgsConstructor
 @EnableConfigurationProperties(AuthProperties.class)
@@ -28,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 public class GatewayFilter implements GlobalFilter, Ordered {
 
     private final JwtUtil jwtUtil;
-    private final StringRedisTemplate redisTemplate;
     private final AuthProperties authProperties;
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -36,16 +38,16 @@ public class GatewayFilter implements GlobalFilter, Ordered {
             // 1. 获取Request对象，以访问请求的相关信息
             ServerHttpRequest request = exchange.getRequest();
             String path = request.getPath().toString();
-
             // 2. 判断请求路径是否在白名单中
             if (isIgnoreUrl(path)){
                 log.info("直接放行");
                 return chain.filter(exchange);
             }
-
             // 3. 获取请求头中的token
             String token = null;
             List<String> headers = request.getHeaders().get("Authorization");
+
+
             if (!(headers == null || headers.isEmpty())) {
                 token = headers.get(0);
             }
@@ -53,7 +55,11 @@ public class GatewayFilter implements GlobalFilter, Ordered {
             // 4. 使用jwtTool校验并解析token
             Long userId = null;
             userId = jwtUtil.getId(token);
-            System.out.println("userId = " + userId); // 打印用户ID供调试
+
+            log.info("请求路径: {}", path);
+            log.info("请求头: {}", request.getHeaders());
+            log.info("Token: {}", token);
+            log.info("id: {}", userId);
             String userInfo = userId.toString();
             ServerWebExchange modifiedExchange = exchange.mutate()
                     .request(builder -> builder.header("user-info", userInfo)) // 将用户信息保存到请求头
@@ -86,3 +92,4 @@ public class GatewayFilter implements GlobalFilter, Ordered {
         return 0;
     }
 }
+
