@@ -54,8 +54,7 @@ trip-planner/
 │   │   │   └── UserDTO.java            # 用户数据传输对象  
 │   │   └── enums/  
 │   │       └── ItineraryStatus.java    # 行程状态枚举（如PLANNING, COMPLETED）  
-│   └── pom.xml                        # 模块依赖配置  
-
+│   └── pom.xml                        # 模块依赖配置
 └── docker-compose.yml             # Docker环境编排  
 
 
@@ -178,6 +177,198 @@ public interface DestinationClient {
     @GetMapping("/destination/getDestinationsById")
     Result <DestinationDTO> getDestinationsById(@RequestParam long id);
 }
+```
+
+
+
+
+
+### docker compose部署
+
+修改父模块,子模块的pom.xml，实现子模块一键打包、
+
+```xml
+<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin> 
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                
+                <configuration>（删掉）       <mainClass>org.example.tripplanner.TripPlannerApplication</mainClass>
+                    <skip>true</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>（删掉，让子模块有自己的打包逻辑）
+                
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+```
+
+修改子模块，放入
+
+```xml
+<executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+</executions>
+```
+
+以user子模块为例
+
+```xml
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <version>${spring-boot.version}</version>
+   <configuration>
+                    <mainClass>org.example.userservice.UserServiceApplication</mainClass>
+                    <skip>false</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+</plugin>
+```
+
+java -jar user-service-0.0.1-SNAPSHOT.jar
+
+Main-Class: org.example.userservice.UserServiceApplication
+
+构建Dockerfile
+
+```
+# 使用官方 OpenJDK 镜像作为基础镜像
+FROM openjdk:8-jdk-slim
+
+#   设置工作目录
+WORKDIR /app
+
+# 将应用的 jar 包复制到容器内
+COPY target/user-service-0.0.1-SNAPSHOT.jar /app/user-service-0.0.1-SNAPSHOT.jar
+
+# 暴露应用运行的端口
+EXPOSE 8081
+
+# 启动应用
+ENTRYPOINT ["java", "-jar", "user-service-0.0.1-SNAPSHOT.jar"]
+```
+
+在父工程里构建docker-compose.yml文件
+
+```yaml
+services:
+
+  tp-gateway:
+    build:
+      context: ./tp-gateway
+      dockerfile: Dockerfile
+    container_name: tp-gateway
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      NACOS_SERVER_ADDR: 192.168.184.130:8850
+    networks:
+      - tp-net
+
+  user-service:
+    build:
+      context: ./user-service
+      dockerfile: Dockerfile
+    container_name: user-service
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - tp-gateway
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://192.168.184.130:3306/tp-user?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123
+      NACOS_SERVER_ADDR: 192.168.184.130:8850
+      RABBITMQ_HOST: 192.168.184.130
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USERNAME: tp
+      RABBITMQ_PASSWORD: 123
+    networks:
+      - tp-net
+
+  itinerary-service:
+    build:
+      context: ./itinerary-service
+      dockerfile: Dockerfile
+    container_name: itinerary-service
+    restart: always
+    ports:
+      - "8082:8082"
+    depends_on:
+      - user-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://192.168.184.130:3306/tp-itineraries?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123
+      NACOS_SERVER_ADDR: 192.168.184.130:8850
+      RABBITMQ_HOST: 192.168.184.130
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USERNAME: tp
+      RABBITMQ_PASSWORD: 123
+    networks:
+      - tp-net
+
+  destination-service:
+    build:
+      context: ./destination-service
+      dockerfile: Dockerfile
+    container_name: destination-service
+    restart: always
+    ports:
+      - "8083:8083"
+    depends_on:
+      - itinerary-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://192.168.184.130:3306/tp-destinations?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 123
+      NACOS_SERVER_ADDR: 192.168.184.130:8850
+      RABBITMQ_HOST: 192.168.184.130
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USERNAME: tp
+      RABBITMQ_PASSWORD: 123
+    networks:
+      - tp-net
+
+networks:
+  tp-net:
+    external: true
 ```
 
 

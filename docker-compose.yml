@@ -1,5 +1,19 @@
 
 services:
+
+  tp-gateway:
+    build:
+      context: ./tp-gateway
+      dockerfile: Dockerfile
+    container_name: tp-gateway
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      NACOS_SERVER_ADDR: 192.168.184.130:8850
+    networks:
+      - tp-net
+
   user-service:
     build:
       context: ./user-service
@@ -19,19 +33,6 @@ services:
       RABBITMQ_PORT: 5672
       RABBITMQ_USERNAME: tp
       RABBITMQ_PASSWORD: 123
-    networks:
-      - tp-net
-
-  tp-gateway:
-    build:
-      context: ./tp-gateway
-      dockerfile: Dockerfile
-    container_name: tp-gateway
-    restart: always
-    ports:
-      - "8080:8080"
-    environment:
-      NACOS_SERVER_ADDR: 192.168.184.130:8850
     networks:
       - tp-net
 
