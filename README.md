@@ -53,7 +53,7 @@ trip-planner/
 │   │   │   ├── ItineraryDTO.java       # 行程数据传输对象  
 │   │   │   └── UserDTO.java            # 用户数据传输对象  
 │   │   └── enums/  
-│   │       └── ItineraryStatus.java    # 行程状态枚举（如PLANNING, COMPLETED）  
+│   │       └── ItineraryStatus.java    # 行程状态枚举  
 │   └── pom.xml                        # 模块依赖配置
 └── docker-compose.yml             # Docker环境编排  
 
@@ -65,7 +65,7 @@ trip-planner/
 
 在 `GatewayFilter` 中：
 
-- 从请求头中获取 `Authorization`（通常是 JWT Token）。
+- 从请求头中获取 `Authorization`（ JWT Token）。
 - 使用 `JwtUtil` 解析 `token` 并验证其有效性。
 - 如果 `token` 无效，返回 401 未授权响应。
 - 如果 `token` 有效，将 `userId` 提取并加入新的请求头（ `user-info`）。
@@ -149,6 +149,14 @@ public class MvcConfig implements WebMvcConfigurer {
 
 ### 服务注册与发现（Nacos）
 
+```xml
+        <!--nacos 服务注册发现-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+```
+
 - 每个微服务（如`destination-service`）启动时，向Nacos注册中心注册自身信息（服务名、IP、端口等）。
 - 其他服务（如`itinerary-service`）通过Nacos查询目标服务的可用实例列表，实现动态路由。
 
@@ -163,7 +171,15 @@ spring:
 
 ### 服务间调用
 
+引依赖
 
+```xml
+<!--openFeign-->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
+```
 
 创建 Feign 客户端接口 DestinationClient 使 itinerary-service 可以调用 destination-service 里的方法获得目的地信息
 
@@ -179,7 +195,13 @@ public interface DestinationClient {
 }
 ```
 
+`application.yml`中配置Feign
 
+```yaml
+feign:
+  okhttp:
+    enabled: true # 开启OKHttp功能
+```
 
 
 
@@ -259,9 +281,7 @@ public interface DestinationClient {
 </plugin>
 ```
 
-java -jar user-service-0.0.1-SNAPSHOT.jar
 
-Main-Class: org.example.userservice.UserServiceApplication
 
 构建Dockerfile
 
