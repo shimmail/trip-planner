@@ -1,6 +1,10 @@
 # 使用官方 OpenJDK 镜像作为基础镜像
 FROM openjdk:8-jdk-slim
 
+# 设置时区为 Asia/Shanghai
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 #   设置工作目录
 WORKDIR /app
 
